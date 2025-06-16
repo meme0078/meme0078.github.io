@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Bienvenida</title>
+  </head>
+  <body>
+    <h1>¡Hola! Soy Melissa Sánchez</h1>
+    <p>Estudiante de Ingeniería Biomédica aprendiendo Machine Learning y Data Analysis.</p>
+  </body>
+</html>
