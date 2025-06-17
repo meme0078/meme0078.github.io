@@ -1,56 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>My Portfolio - Melissa Sánchez</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portafolio - Melissa Sánchez</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
     body {
       font-family: Arial, sans-serif;
-      background-color: #f5f5f5;
       margin: 0;
-      padding: 0;
-      text-align: center;
-    }
-
-    header {
-      background-color: #4CAF50;
-      color: white;
-      padding: 2rem 0;
-    }
-
-    section {
-      margin: 2rem auto;
-      padding: 1.5rem;
-      background-color: white;
-      max-width: 800px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-
-    h2 {
+      background-color: #f5f5f5;
       color: #333;
     }
-
-    ul {
-      text-align: left;
-      max-width: 600px;
-      margin: 0 auto;
+    header {
+      background-color: #4CAF50;
+      padding: 2rem;
+      text-align: center;
+      color: white;
     }
-
-    footer {
-      background-color: #ddd;
-      padding: 1rem;
-      font-size: 0.9rem;
+    nav {
+      background-color: #333;
+      overflow: hidden;
     }
-
-    a {
-      color: #4CAF50;
+    nav a {
+      float: left;
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 20px;
       text-decoration: none;
     }
-
-    a:hover {
-      text-decoration: underline;
+    nav a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+    section {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+      background-color: white;
+      margin-top: 1rem;
+      border-radius: 10px;
+    }
+    h2 {
+      color: #4CAF50;
+    }
+    footer {
+      text-align: center;
+      background-color: #ddd;
+      padding: 1rem;
+      margin-top: 2rem;
     }
   </style>
 </head>
@@ -58,27 +59,64 @@
 
   <header>
     <h1>My Portfolio</h1>
-    <p>Melissa Sánchez | Biomedical Engineering Student</p>
+    <p>Melissa Sánchez | Ingeniería Biomédica</p>
   </header>
 
-  <section>
-    <h2>About Me</h2>
-    <p>I’m passionate about health technology, medical imaging, and dosimetry. I love building projects that improve healthcare access and innovation.</p>
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#clase">Trabajo en Clase</a>
+    <a href="#labs">Laboratorios</a>
+    <a href="#quiz">Quices</a>
+    <a href="#medio">Proyecto Medio Término</a>
+    <a href="#final">Proyecto Final</a>
+  </nav>
 
-    <h2>Projects</h2>
+  <section id="inicio">
+    <h2>Inicio</h2>
+    <p>Bienvenidos a mi portafolio web. Aquí encontrarás un resumen de mis trabajos realizados durante el curso, incluyendo proyectos prácticos, laboratorios y evaluaciones.</p>
+  </section>
+
+  <section id="clase">
+    <h2>Trabajo en Clase</h2>
     <ul>
-      <li><strong>I-131 Dosimetry Estimation:</strong> MATLAB + OLINDA models</li>
-      <li><strong>Arduino UV Disinfection Lamp:</strong> Interactive LCD and timer</li>
-      <li><strong>Upper-Limb Exoskeleton:</strong> Assistive tech for elderly autonomy</li>
+      <li>Clase 1: Fundamentos teóricos sobre dosimetría</li>
+      <li>Clase 2: Simulación en MATLAB de distribución de dosis</li>
+      <li>Clase 3: Análisis de normativa ISO 13485</li>
+      <!-- Agrega más clases si deseas -->
     </ul>
+  </section>
 
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:melissasanchez@example.com">melissasanchez@example.com</a></p>
-    <p>GitHub: <a href="https://github.com/meme0078" target="_blank">github.com/meme0078</a></p>
+  <section id="labs">
+    <h2>Laboratorios</h2>
+    <ul>
+      <li>Lab 1: Arduino + Sensor UV</li>
+      <li>Lab 2: Modelo biomecánico de dedo índice</li>
+      <li>Lab 3: Ensayo sobre exoesqueletos</li>
+    </ul>
+  </section>
+
+  <section id="quiz">
+    <h2>Quices</h2>
+    <ul>
+      <li>Quiz 1: Normativas biomédicas</li>
+      <li>Quiz 2: Cálculo de dosis con I-131</li>
+    </ul>
+  </section>
+
+  <section id="medio">
+    <h2>Proyecto de Medio Término</h2>
+    <p><strong>Título:</strong> Diagnóstico remoto de picaduras en zonas rurales</p>
+    <p><strong>Resumen:</strong> Desarrollo de un sistema que permite el envío de imágenes desde dispositivos médicos hacia expertos, usando conectividad Starlink y Telegram.</p>
+  </section>
+
+  <section id="final">
+    <h2>Proyecto Final</h2>
+    <p><strong>Título:</strong> Estimación de dosis para terapia metabólica con I-131 en cáncer de tiroides</p>
+    <p><strong>Resumen:</strong> Comparación de modelos de cálculo: clínico estándar, software OLINDA y simulación MATLAB. Objetivo: optimizar tratamiento personalizado con base en imágenes.</p>
   </section>
 
   <footer>
-    &copy; 2025 Melissa Sánchez. All rights reserved.
+    &copy; 2025 Melissa Sánchez | Portafolio académico
   </footer>
 
 </body>
