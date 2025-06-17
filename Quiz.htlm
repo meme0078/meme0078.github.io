@@ -2,10 +2,11 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Quices</title>
+  <title>Quiz</title>
 </head>
 <body>
-  <h1>Quices</h1>
-  <p>Resumen y resultados de quices aplicados a lo largo del curso.</p>
+  <h1>Quiz</h1>
+  <p>Contenido relacionado con evaluaciones rápidas y pruebas cortas realizadas durante el curso.</p>
 </body>
 </html>
+
