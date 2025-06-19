@@ -35,6 +35,12 @@
       gap: 1rem;
       flex-wrap: wrap;
       margin-bottom: 2rem;
+      position: relative;
+    }
+
+    nav .dropdown {
+      position: relative;
+      display: inline-block;
     }
 
     nav button {
@@ -50,6 +56,31 @@
 
     nav button:hover {
       background-color: #ba68c8;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f3e5f5;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+      border-radius: 8px;
+    }
+
+    .dropdown-content a {
+      color: #4a148c;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #e1bee7;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
     }
 
     section {
@@ -101,8 +132,22 @@
     <button onclick="document.getElementById('inicio').scrollIntoView({behavior: 'smooth'})">Inicio</button>
     <button onclick="window.open('https://github.com/meme0078/Trabajos-en-clase','_blank')">Trabajos en clase</button>
     <button onclick="window.open('https://github.com/meme0078/Proyectos','_blank')">Proyectos</button>
-    <button onclick="window.open('https://github.com/meme0078/Laboratorios','_blank')">Laboratorios</button>
-    <button onclick="window.open('https://github.com/meme0078/Quiz','_blank')">Quiz</button>
+
+    <div class="dropdown">
+      <button>Laboratorios</button>
+      <div class="dropdown-content">
+        <a href="https://github.com/meme0078/Laboratorios/Lab1" target="_blank">Laboratorio 1</a>
+        <a href="https://github.com/meme0078/Laboratorios/Lab2" target="_blank">Laboratorio 2</a>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <button>Quiz</button>
+      <div class="dropdown-content">
+        <a href="https://github.com/meme0078/Quiz/Quiz1" target="_blank">Quiz 1</a>
+        <a href="https://github.com/meme0078/Quiz/Quiz2" target="_blank">Quiz 2</a>
+      </div>
+    </div>
   </nav>
 
   <section id="inicio">
