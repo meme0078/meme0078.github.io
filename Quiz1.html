@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz - Análisis de Datos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f3e5f5;
+      padding: 2rem;
+      margin: 0;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    h1 {
+      color: #6a1b9a;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      background-color: #ce93d8;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #ba68c8;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 2px 2px 6px #ccc;
+    }
+
+    .pregunta {
+      font-weight: bold;
+      color: #4a148c;
+      margin-bottom: 0.5rem;
+    }
+
+    .opciones {
+      margin-bottom: 0.5rem;
+    }
+
+    .respuesta {
+      color: green;
+      font-weight: bold;
+      margin-bottom: 0.3rem;
+    }
+
+    .explicacion {
+      color: #333;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Resumen del Quiz - Análisis de Datos</h1>
+  </header>
+
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="Quiz1.html">Quiz</a>
+  </nav>
+
+  <div class="card">
+    <div class="pregunta">1. ¿Cuál es una librería para análisis de datos?</div>
+    <div class="opciones">
+      A. numpy<br>B. matplotlib<br>C. gensim<br>D. polars<br>E. Todas las anteriores<br>F. Ninguna de las anteriores
+    </div>
+    <div class="respuesta">Respuesta: E</div>
+    <div class="explicacion">Todas son librerías útiles en análisis de datos.</div>
+  </div>
+
+  <div class="card">
+    <div class="pregunta">2. ¿Cuál muestra la diferencia de cuánto se desvía la media?</div>
+    <div class="opciones">
+      A. covarianza<br>B. varianza<br>C. desviación estándar<br>D. distribución de bernoulli<br>E. Todas las anteriores<br>F. Ninguna de las anteriores
+    </div>
+    <div class="respuesta">Respuesta: C</div>
+    <div class="explicacion">La desviación estándar mide la dispersión con respecto a la media.</div>
+  </div>
+
+  <div class="card">
+    <div class="pregunta">3. Los cuartiles, deciles, percentiles son aquellos que:</div>
+    <div class="opciones">
+      A. Dividen la data en partes diferentes<br>B. Dividen el dataset<br>C. Dividen el dataset en train y test<br>D. Dividen las observaciones en partes iguales<br>E. Todas las anteriores<br>F. Ninguna de las anteriores
+    </div>
+    <div class="respuesta">Respuesta: D</div>
+    <div class="explicacion">Dividen las observaciones en partes iguales.</div>
+  </div>
+
+  <div class="card">
+    <div class="pregunta">4. Una gráfica con distribución central más hacia la derecha y una cola a la izquierda se dice es:</div>
+    <div class="opciones">
+      A. left-skewed o sesgada a la izquierda<br>B. right-skewed o sesgada a la derecha<br>C. neutral o centrada<br>D. Clasificación<br>E. Todas las anteriores<br>F. Ninguna de las anteriores
+    </div>
+    <div class="respuesta">Respuesta: A</div>
+    <div class="explicacion">La cola a la izquierda indica que hay valores extremos menores.</div>
+  </div>
+
+  <div class="card">
+    <div class="pregunta">5. En una distribución sesgada a la izquierda, el orden de aparición de la moda, mediana y media es típico:</div>
+    <div class="opciones">A. Cierto<br>B. Falso</div>
+    <div class="respuesta">Respuesta: A</div>
+    <div class="explicacion">Moda > Mediana > Media.</div>
+  </div>
+
+  <div class="card">
+    <div class="pregunta">6. El término de correlación no puede dar negativo:</div>
+    <div class="opciones">A. Cierto<br>B. Falso</div>
+    <div class="respuesta">Respuesta: B</div>
+    <div class="explicacion">La correlación puede ser negativa, positiva o nula.</div>
+  </div>
+
+  <div class="card">
+    <div class="pregunta">7. Un histograma representa:</div>
+    <div class="opciones">
+      A. los cuartiles<br>B. la distribución de la data<br>C. los percentiles<br>D. frecuencia de binarios<br>E. el tercer cuartil<br>F. Todas las anteriores<br>G. Ninguna de las anteriores
+    </div>
+    <div class="respuesta">Respuesta: B</div>
+    <div class="explicacion">El histograma representa cómo se distribuyen los valores en rangos (bins).</div>
+  </div>
+
+  <div class="card">
+    <div class="pregunta">8. Diferencia entre población y muestra estadística:</div>
+    <div class="opciones">
+      A. La población es el conjunto representativo...<br>
+      B. La población es el conjunto completo...<br>
+      C. La muestra se obtiene dividiendo train y test...<br>
+      D. La población se obtiene dividiendo train y test...<br>
+      E. Todas las anteriores<br>F. Ninguna de las anteriores
+    </div>
+    <div class="respuesta">Respuesta: B</div>
+    <div class="explicacion">La población es el total con características comunes. La muestra es un subconjunto representativo.</div>
+  </div>
+
+  <div class="card">
+    <div class="pregunta">9. ¿La mediana y la moda detectan outliers?</div>
+    <div class="opciones">A. Cierto<br>B. Falso</div>
+    <div class="respuesta">Respuesta: B</div>
+    <div class="explicacion">La media es la que se ve afectada por los outliers, no la mediana ni la moda.</div>
+  </div>
+
+  <div class="card">
+    <div class="pregunta">10. Los datos pueden provenir de fuentes como:</div>
+    <div class="opciones">
+      A. El entorno<br>B. Data tabular<br>C. Imágenes y audio<br>D. Documentos<br>E. Todas las anteriores<br>F. Ninguna de las anteriores
+    </div>
+    <div class="respuesta">Respuesta: E</div>
+    <div class="explicacion">Los datos pueden venir de sensores, tablas, imágenes, audio, texto y más.</div>
+  </div>
+
+</body>
+</html>
