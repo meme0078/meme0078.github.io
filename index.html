@@ -2,26 +2,77 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Inteligencia Artificial - Melissa Sánchez</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header>
-    <h1>Curso de Inteligencia Artificial</h1>
-    <p>Bienvenidos a la página del curso. Aquí encontrarás materiales, laboratorios, quizzes y el proyecto del curso.</p>
-  </header>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Melissa Sánchez · Portafolio</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f5e6fb;
+      color: #3e0066;
+      margin: 0;
+      padding: 0;
+    }
 
-  <nav>
-    <a href="index.html">Inicio</a>
-    <a href="trabajo.html">Trabajo en Clase</a>
-    <a href="laboratorios.html">Laboratorios</a>
-    <a href="quiz.html">Quiz</a>
-    <a href="proyecto.html">Proyecto</a>
-  </nav>
+    header {
+      text-align: center;
+      padding: 2rem;
+    }
 
-  <section>
-    <h2>Descripción del curso</h2>
-    <p>El curso de Inteligencia Artificial proporciona las bases necesarias para comprender cómo las máquinas pueden simular procesos de inteligencia humana como el aprendizaje, el razonamiento y la resolución de problemas. Se abarcarán temas como redes neuronales, aprendizaje supervisado/no supervisado, lógica difusa y agentes inteligentes.</p>
-  </section>
-</body>
-</html>
+    header h1 {
+      font-size: 2.5rem;
+      color: #6a1b9a;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #7b1fa2;
+      margin-top: 0.5rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    nav button {
+      background-color: #ce93d8;
+      border: none;
+      padding: 0.7rem 1.5rem;
+      border-radius: 8px;
+      font-weight: bold;
+      color: #4a148c;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    nav button:hover {
+      background-color: #ba68c8;
+    }
+
+    section {
+      max-width: 800px;
+      margin: auto;
+      background-color: #f3e5f5;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 10px #ccc;
+    }
+
+    section h2 {
+      color: #6a1b9a;
+      margin-bottom: 1rem;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 2rem;
+      padding: 1rem;
+      color: #6a1b9a;
+    }
+
+    .icons {
+      text-align: center;
+      font-size: 2rem
