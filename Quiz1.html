@@ -72,6 +72,7 @@
     .explicacion {
       color: #333;
       font-style: italic;
+      white-space: pre-wrap;
     }
   </style>
 </head>
@@ -87,21 +88,30 @@
   </nav>
 
   <div class="card">
-    <div class="pregunta">1. ¿Cuál es una librería para análisis de datos?</div>
+    <div class="pregunta">1. Librería para análisis de Datos</div>
     <div class="opciones">
       A. numpy<br>B. matplotlib<br>C. gensim<br>D. polars<br>E. Todas las anteriores<br>F. Ninguna de las anteriores
     </div>
-    <div class="respuesta">Respuesta: E</div>
-    <div class="explicacion">Todas son librerías útiles en análisis de datos.</div>
+    <div class="respuesta">Respuesta correcta: E. Todas las anteriores</div>
+    <div class="explicacion">
+      Todas estas son librerías utilizadas en análisis de datos:
+      - numpy: cálculo numérico
+      - matplotlib: visualización de datos
+      - gensim: procesamiento de lenguaje natural
+      - polars: procesamiento eficiente de dataframes
+    </div>
   </div>
 
   <div class="card">
-    <div class="pregunta">2. ¿Cuál muestra la diferencia de cuánto se desvía la media?</div>
+    <div class="pregunta">2. Muestra la diferencia de cuánto se desvía la media</div>
     <div class="opciones">
       A. covarianza<br>B. varianza<br>C. desviación estándar<br>D. distribución de bernoulli<br>E. Todas las anteriores<br>F. Ninguna de las anteriores
     </div>
-    <div class="respuesta">Respuesta: C</div>
-    <div class="explicacion">La desviación estándar mide la dispersión con respecto a la media.</div>
+    <div class="respuesta">Respuesta correcta: C. desviación estándar</div>
+    <div class="explicacion">
+      La desviación estándar mide cuánto se desvían los datos respecto a la media.
+      Es más intuitiva que la varianza (que es su cuadrado) y directamente responde a "cuánto se desvía la media".
+    </div>
   </div>
 
   <div class="card">
@@ -109,8 +119,13 @@
     <div class="opciones">
       A. Dividen la data en partes diferentes<br>B. Dividen el dataset<br>C. Dividen el dataset en train y test<br>D. Dividen las observaciones en partes iguales<br>E. Todas las anteriores<br>F. Ninguna de las anteriores
     </div>
-    <div class="respuesta">Respuesta: D</div>
-    <div class="explicacion">Dividen las observaciones en partes iguales.</div>
+    <div class="respuesta">Respuesta correcta: D. Dividen las observaciones en partes iguales</div>
+    <div class="explicacion">
+      Estos valores dividen el conjunto de datos en partes iguales:
+      - Cuartiles: 4
+      - Deciles: 10
+      - Percentiles: 100
+    </div>
   </div>
 
   <div class="card">
@@ -118,60 +133,87 @@
     <div class="opciones">
       A. left-skewed o sesgada a la izquierda<br>B. right-skewed o sesgada a la derecha<br>C. neutral o centrada<br>D. Clasificación<br>E. Todas las anteriores<br>F. Ninguna de las anteriores
     </div>
-    <div class="respuesta">Respuesta: A</div>
-    <div class="explicacion">La cola a la izquierda indica que hay valores extremos menores.</div>
+    <div class="respuesta">Respuesta correcta: A. left-skewed o sesgada a la izquierda</div>
+    <div class="explicacion">
+      Una distribución con la cola extendida hacia la izquierda (valores bajos) se considera sesgada a la izquierda.
+    </div>
   </div>
 
   <div class="card">
-    <div class="pregunta">5. En una distribución sesgada a la izquierda, el orden de aparición de la moda, mediana y media es típico:</div>
+    <div class="pregunta">5. En una distribución sesgada a la izquierda el orden de aparición de la moda, mediana y media es típicamente como el mencionado</div>
     <div class="opciones">A. Cierto<br>B. Falso</div>
-    <div class="respuesta">Respuesta: A</div>
-    <div class="explicacion">Moda > Mediana > Media.</div>
+    <div class="respuesta">Respuesta correcta: A. Cierto</div>
+    <div class="explicacion">
+      En una distribución sesgada a la izquierda, el orden suele ser:
+      Moda > Mediana > Media, debido a que los valores más bajos (cola izquierda) empujan la media hacia abajo.
+    </div>
   </div>
 
   <div class="card">
     <div class="pregunta">6. El término de correlación no puede dar negativo:</div>
     <div class="opciones">A. Cierto<br>B. Falso</div>
-    <div class="respuesta">Respuesta: B</div>
-    <div class="explicacion">La correlación puede ser negativa, positiva o nula.</div>
+    <div class="respuesta">Respuesta correcta: B. Falso</div>
+    <div class="explicacion">
+      La correlación puede ser:
+      - Positiva (ambas variables suben)
+      - Negativa (una sube y la otra baja)
+      - Cero (no hay relación)
+      Por tanto, sí puede ser negativa.
+    </div>
   </div>
 
   <div class="card">
-    <div class="pregunta">7. Un histograma representa:</div>
+    <div class="pregunta">7. Un histograma representa</div>
     <div class="opciones">
       A. los cuartiles<br>B. la distribución de la data<br>C. los percentiles<br>D. frecuencia de binarios<br>E. el tercer cuartil<br>F. Todas las anteriores<br>G. Ninguna de las anteriores
     </div>
-    <div class="respuesta">Respuesta: B</div>
-    <div class="explicacion">El histograma representa cómo se distribuyen los valores en rangos (bins).</div>
+    <div class="respuesta">Respuesta correcta: B. la distribución de la data</div>
+    <div class="explicacion">
+      Un histograma muestra cómo se distribuyen los datos dentro de intervalos (bins).
+      No muestra cuartiles, percentiles, ni binarios por sí solo.
+    </div>
   </div>
 
   <div class="card">
-    <div class="pregunta">8. Diferencia entre población y muestra estadística:</div>
+    <div class="pregunta">8. La diferencia entre población y muestra estadística:</div>
     <div class="opciones">
-      A. La población es el conjunto representativo...<br>
-      B. La población es el conjunto completo...<br>
-      C. La muestra se obtiene dividiendo train y test...<br>
-      D. La población se obtiene dividiendo train y test...<br>
+      A. La población es el conjunto representativo de la muestra...<br>
+      B. La población es el conjunto completo de elementos... mientras que una muestra es el subconjunto representativo<br>
+      C. La muestra se obtiene dividiendo las variables en train/test...<br>
+      D. La población se obtiene dividiendo las variables en train/test...<br>
       E. Todas las anteriores<br>F. Ninguna de las anteriores
     </div>
-    <div class="respuesta">Respuesta: B</div>
-    <div class="explicacion">La población es el total con características comunes. La muestra es un subconjunto representativo.</div>
-  </div>
-
-  <div class="card">
-    <div class="pregunta">9. ¿La mediana y la moda detectan outliers?</div>
-    <div class="opciones">A. Cierto<br>B. Falso</div>
-    <div class="respuesta">Respuesta: B</div>
-    <div class="explicacion">La media es la que se ve afectada por los outliers, no la mediana ni la moda.</div>
-  </div>
-
-  <div class="card">
-    <div class="pregunta">10. Los datos pueden provenir de fuentes como:</div>
-    <div class="opciones">
-      A. El entorno<br>B. Data tabular<br>C. Imágenes y audio<br>D. Documentos<br>E. Todas las anteriores<br>F. Ninguna de las anteriores
+    <div class="respuesta">Respuesta correcta: B.</div>
+    <div class="explicacion">
+      - Población: todo el conjunto de interés
+      - Muestra: subconjunto representativo de la población que se estudia para sacar conclusiones
     </div>
-    <div class="respuesta">Respuesta: E</div>
-    <div class="explicacion">Los datos pueden venir de sensores, tablas, imágenes, audio, texto y más.</div>
+  </div>
+
+  <div class="card">
+    <div class="pregunta">9. La mediana y la moda detectan outliers</div>
+    <div class="opciones">A. Cierto<br>B. Falso</div>
+    <div class="respuesta">Respuesta correcta: B. Falso</div>
+    <div class="explicacion">
+      La mediana y la moda no son sensibles a outliers.
+      La media sí lo es. De hecho, se usan precisamente por su resistencia a los valores extremos.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="pregunta">10. Los datos pueden provenir de fuentes como</div>
+    <div class="opciones">
+      A. El entorno<br>B. Data tabular<br>C. Imágenes y Audio<br>D. Documentos<br>E. Todas las anteriores<br>F. Ninguna de las anteriores
+    </div>
+    <div class="respuesta">Respuesta correcta: E. Todas las anteriores</div>
+    <div class="explicacion">
+      Los datos pueden venir de muchas fuentes:
+      - Sensores (entorno)
+      - Bases de datos (tabular)
+      - Multimedia (audio, imágenes)
+      - Documentos (texto)
+      Todas son fuentes válidas de datos.
+    </div>
   </div>
 
 </body>
