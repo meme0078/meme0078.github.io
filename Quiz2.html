@@ -2,65 +2,209 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Quiz 2 - Inteligencia Artificial</title>
+  <title>Quiz - Machine Learning</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
       background-color: #f3e5f5;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+      padding: 2rem;
       margin: 0;
     }
 
-    .aviso {
-      background-color: #fff3e0;
-      border: 2px dashed #ff9800;
-      padding: 2rem;
-      border-radius: 12px;
+    header {
       text-align: center;
-      max-width: 600px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      margin-bottom: 2rem;
     }
 
-    .aviso h1 {
-      color: #ef6c00;
+    h1 {
+      color: #6a1b9a;
       font-size: 2rem;
       margin-bottom: 1rem;
     }
 
-    .aviso p {
-      color: #5d4037;
-      font-size: 1rem;
-      margin-bottom: 1rem;
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
     }
 
-    .button {
-      display: inline-block;
-      padding: 0.7rem 1.5rem;
-      background-color: #ef6c00;
-      color: white;
+    nav a {
       text-decoration: none;
+      background-color: #ce93d8;
+      color: white;
+      padding: 0.5rem 1rem;
       border-radius: 8px;
       font-weight: bold;
+      transition: background-color 0.3s ease;
     }
 
-    .button:hover {
-      background-color: #e65100;
+    nav a:hover {
+      background-color: #ba68c8;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 2px 2px 6px #ccc;
+    }
+
+    .pregunta {
+      font-weight: bold;
+      color: #4a148c;
+      margin-bottom: 0.5rem;
+    }
+
+    .opciones {
+      margin-bottom: 0.5rem;
+    }
+
+    .respuesta {
+      color: green;
+      font-weight: bold;
+      margin-bottom: 0.3rem;
+    }
+
+    .explicacion {
+      color: #333;
+      font-style: italic;
+      white-space: pre-wrap;
     }
   </style>
 </head>
 <body>
 
-  <div class="aviso">
-    <h1>📚 Quiz 2 - Disponible Pronto</h1>
-    <p>En las próximas semanas estaremos publicando el <strong>Quiz 2</strong> correspondiente al curso de <em>Inteligencia Artificial</em>.</p>
-    <p>¡Vuelve pronto para continuar reforzando los conocimientos aprendidos!</p>
-    <a href="index.html" class="button">Volver al inicio</a>
+  <header>
+    <h1>Resumen del Quiz - Machine Learning</h1>
+  </header>
+
+  <nav>
+    <a href="index.html">Inicio</a>
+  </nav>
+
+  <div class="card">
+    <div class="pregunta">1. ¿Qué es Machine Learning?</div>
+    <div class="opciones">
+      A. Una configuración especial en las máquinas para habilitar su aprendizaje<br>
+      B. Algoritmos que hacen que la máquina aprenda sin necesidad de hacer explícita la programación<br>
+      C. Realizar programación por medio de IF ELSE para que la máquina aprenda<br>
+      D. Realizar reglas de entrada y salida para que la máquina aprenda<br>
+      E. Todas las anteriores<br>
+      F. Ninguna de las anteriores
+    </div>
+    <div class="respuesta">Respuesta correcta: B</div>
+    <div class="explicacion">
+      El machine learning permite que un algoritmo aprenda de datos sin programación explícita con reglas.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="pregunta">2. Serie de algoritmos con datos y etiquetas como entrada, y modelo como salida</div>
+    <div class="opciones">
+      A. Supervised Learning<br>B. Unsupervised Learning<br>C. Semi supervised Learning<br>D. Reinforcement Learning<br>E. Todas las anteriores<br>F. Ninguna de las anteriores
+    </div>
+    <div class="respuesta">Respuesta correcta: A</div>
+    <div class="explicacion">
+      El aprendizaje supervisado usa datos con etiquetas conocidas para entrenar modelos predictivos.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="pregunta">3. Cuando ingresamos datos categóricos y la salida es un número</div>
+    <div class="opciones">
+      A. Clasificación<br>B. Regresión lineal<br>C. Regresión Logística<br>D. Bagging<br>E. Todas las anteriores<br>F. Ninguna de las anteriores
+    </div>
+    <div class="respuesta">Respuesta correcta: B</div>
+    <div class="explicacion">
+      La regresión lineal predice valores continuos incluso a partir de datos categóricos codificados.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="pregunta">4. Algoritmos con recompensa y pérdida mediante políticas</div>
+    <div class="opciones">
+      A. Machine Learning<br>B. Supervised Learning<br>C. Reinforcement Learning<br>D. Clasificación<br>E. Todas las anteriores<br>F. Ninguna de las anteriores
+    </div>
+    <div class="respuesta">Respuesta correcta: C</div>
+    <div class="explicacion">
+      El aprendizaje por refuerzo aprende acciones óptimas con base en recompensas y penalizaciones.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="pregunta">5. En batch learning aprendemos en el vuelo</div>
+    <div class="opciones">A. Cierto<br>B. Falso</div>
+    <div class="respuesta">Respuesta correcta: B</div>
+    <div class="explicacion">
+      Batch learning entrena con el dataset completo, no en tiempo real como en online learning.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="pregunta">6. Uso de vector de características para reidentificación</div>
+    <div class="opciones">
+      A. Aprendizaje basado en modelo<br>B. Aprendizaje basado en instancia<br>C. Aprendizaje automático<br>D. Aprendizaje estocástico<br>E. Todas las anteriores<br>F. Ninguna de las anteriores
+    </div>
+    <div class="respuesta">Respuesta correcta: B</div>
+    <div class="explicacion">
+      En el aprendizaje basado en instancia, se compara con ejemplos previos usando vectores.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="pregunta">7. ¿Cuál NO es un algoritmo no supervisado?</div>
+    <div class="opciones">
+      A. PCA<br>B. Eclat<br>C. t-SNE<br>D. SVM de 1 clase<br>E. Regresión logística<br>F. Todas las anteriores<br>G. Ninguna de las anteriores
+    </div>
+    <div class="respuesta">Respuesta correcta: E</div>
+    <div class="explicacion">
+      La regresión logística es un algoritmo supervisado de clasificación binaria.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="pregunta">8. Accuracy alto en entrenamiento y bajo en test set</div>
+    <div class="opciones">
+      A. Underfitting<br>B. High bias<br>C. High variance<br>D. Overfitting<br>E. Todas las anteriores<br>F. Ninguna de las anteriores
+    </div>
+    <div class="respuesta">Respuesta correcta: D</div>
+    <div class="explicacion">
+      El modelo se sobreajustó a los datos de entrenamiento y no generaliza bien a nuevos datos.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="pregunta">9. Baja precisión en validation y test set</div>
+    <div class="opciones">
+      A. Underfitting<br>B. Overfitting<br>C. High bias<br>D. High variance<br>E. Todas las anteriores<br>F. Ninguna de las anteriores
+    </div>
+    <div class="respuesta">Respuesta correcta: A</div>
+    <div class="explicacion">
+      El modelo es demasiado simple o mal entrenado, y no logra capturar los patrones.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="pregunta">10. Entrené con 100% de los datos y luego saqué 20% como test set</div>
+    <div class="opciones">
+      A. El modelo está bien hecho, hemos validado el training set con el test set<br>
+      B. El modelo bien hecho, ya podemos ponerlo en producción<br>
+      C. El modelo está mal hecho, lo hemos tenido que dividir en 98%/1%<br>
+      D. El modelo está mal hecho, hemos de utilizar parte del dataset para training y la otra parte no vista por el modelo como test set<br>
+      E. Todas las anteriores<br>
+      F. Ninguna de las anteriores
+    </div>
+    <div class="respuesta">Respuesta correcta: D</div>
+    <div class="explicacion">
+      El test set debe estar completamente separado y no usado nunca en entrenamiento, para evaluar el rendimiento real.
+    </div>
   </div>
 
 </body>
 </html>
+
 
