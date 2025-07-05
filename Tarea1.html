@@ -28,13 +28,14 @@
       justify-content: center;
       gap: 1rem;
       margin-bottom: 2rem;
+      flex-wrap: wrap;
     }
 
     nav a {
       text-decoration: none;
       background-color: #ce93d8;
       color: white;
-      padding: 0.5rem 1rem;
+      padding: 0.6rem 1.4rem;
       border-radius: 8px;
       font-weight: bold;
       transition: background-color 0.3s ease;
@@ -46,18 +47,23 @@
 
     .card {
       background: #ffffff;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      padding: 1rem;
-      margin-bottom: 1.5rem;
-      box-shadow: 2px 2px 6px #ccc;
+      border: 2px solid #d1c4e9;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 4px 4px 10px #c8b6dc;
     }
 
     .titulo-seccion {
       font-weight: bold;
       color: #4a148c;
-      font-size: 1.2rem;
+      font-size: 1.4rem;
       margin-bottom: 1rem;
+    }
+
+    h4 {
+      color: #6a1b9a;
+      margin-top: 1rem;
     }
 
     pre {
@@ -66,20 +72,22 @@
       overflow-x: auto;
       border-radius: 8px;
       font-size: 0.9rem;
+      line-height: 1.4;
     }
 
     img {
       max-width: 100%;
       height: auto;
-      margin-top: 1rem;
+      margin: 1rem 0;
       border-radius: 8px;
+      border: 1px solid #ccc;
     }
 
     .boton-descarga {
       display: inline-block;
       background-color: #6a1b9a;
       color: white;
-      padding: 0.5rem 1rem;
+      padding: 0.6rem 1.2rem;
       border-radius: 8px;
       text-decoration: none;
       font-weight: bold;
@@ -95,37 +103,46 @@
 <body>
   <header>
     <h1>Informe de Laboratorio - Tarea 1</h1>
-    <p>Modelo de Clasificación Random Forest con visualización de resultados</p>
+    <p>Modelo de Clasificación Random Forest con visualización e interpretación de resultados</p>
   </header>
 
   <nav>
     <a href="index.html">Inicio</a>
+    <a href="Quiz1.html">Quiz 1</a>
   </nav>
 
   <div class="card">
-    <div class="titulo-seccion">Introducción</div>
-    <p>En esta tarea se implementó un modelo de clasificación tipo <strong>Random Forest</strong> con el objetivo de predecir la variable <code>Transported</code> en un conjunto de datos simulados. El modelo fue entrenado con datos preprocesados y evaluado mediante validación cruzada y gráficas interpretativas.</p>
+    <div class="titulo-seccion">¿Qué se hizo?</div>
+    <p>Se entrenó un modelo de clasificación tipo <strong>Random Forest</strong> con datos de pasajeros simulados. El objetivo fue predecir si una persona fue transportada o no (<code>Transported</code>) usando variables como planeta de origen, cabina, VIP, etc. Se preprocesaron los datos, se entrenó el modelo y se evaluó con validación cruzada.</p>
   </div>
 
   <div class="card">
-    <div class="titulo-seccion">Gráficas Generadas</div>
-    <p><strong>Matriz de Confusión:</strong></p>
+    <div class="titulo-seccion">Visualización e Interpretación de Resultados</div>
+    <p>Durante la fase de evaluación, se generaron gráficas automáticas usando <code>matplotlib</code> para visualizar los resultados del modelo y comprender mejor su desempeño.</p>
+
+    <h4>Matriz de Confusión</h4>
+    <p>Permite ver cuántas predicciones fueron correctas (diagonal) y cuántas incorrectas. Ayuda a evaluar si el modelo tiende a equivocarse más con una clase que con otra.</p>
     <img src="matriz_confusion.png" alt="Matriz de Confusión">
-    <p><strong>Importancia de Características:</strong></p>
+
+    <h4>Importancia de Características</h4>
+    <p>Muestra qué variables fueron más relevantes para el modelo. Las características con barras más altas influyeron más en la decisión de clasificar a una persona como transportada o no.</p>
     <img src="importancia_caracteristicas.png" alt="Importancia de Características">
-    <p><strong>Distribución de Clases Predichas:</strong></p>
+
+    <h4>Distribución de Clases Predichas</h4>
+    <p>Este histograma muestra cuántas veces el modelo predijo cada clase. Una distribución muy desequilibrada puede indicar un sesgo en el modelo.</p>
     <img src="distribucion_predicciones.png" alt="Distribución de Predicciones">
-    <a class="boton-descarga" href="submission.csv" download>Descargar archivo de predicciones (submission.csv)</a>
+
+    <a class="boton-descarga" href="submission.csv" download>Descargar predicciones en CSV</a>
   </div>
 
   <div class="card">
-    <div class="titulo-seccion">Análisis y Conclusiones</div>
-    <p>El modelo Random Forest presentó una precisión aproximada del 77% en el conjunto de validación. La matriz de confusión permite observar la calidad de la clasificación binaria, mientras que la gráfica de importancia de características resalta aquellas variables más influyentes en la predicción.</p>
-    <p>Se concluye que el modelo tiene un buen desempeño y podría mejorarse con técnicas de ajuste de hiperparámetros, validación cruzada más exhaustiva y exploración de datos faltantes.</p>
+    <div class="titulo-seccion">¿Qué aprendí?</div>
+    <p>Este laboratorio permitió entender mejor el ciclo completo de un modelo de clasificación supervisado: desde la limpieza de datos hasta la interpretación de resultados. También demostró el poder de las visualizaciones para comprender errores y aciertos del modelo.</p>
   </div>
 
   <div class="card">
-    <div class="titulo-seccion">Código Fuente</div>
+    <div class="titulo-seccion">Código Explicado</div>
+    <p>El siguiente bloque incluye el código fuente con comentarios, mostrando paso a paso cómo se cargaron, transformaron, entrenaron y evaluaron los datos.</p>
     <pre><code>import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -138,7 +155,7 @@ from sklearn.metrics import accuracy_score, confusion_matrix, ConfusionMatrixDis
 train = pd.read_csv("train.csv")
 test = pd.read_csv("test.csv")
 
-# CODIFICACIÓN CATEGÓRICA
+# CODIFICACIÓN DE VARIABLES CATEGÓRICAS
 cat_cols = ['HomePlanet', 'CryoSleep', 'Cabin', 'Destination', 'VIP']
 encoder = LabelEncoder()
 for col in cat_cols:
@@ -146,14 +163,16 @@ for col in cat_cols:
     test[col] = test[col].apply(lambda x: x if x in encoder.classes_ else encoder.classes_[0])
     test[col] = encoder.transform(test[col].astype(str))
 
-# ENTRENAMIENTO
+# SELECCIÓN DE VARIABLES Y DIVISIÓN DE DATOS
 X = train.drop(['Transported', 'PassengerId', 'Name'], axis=1)
 y = train['Transported'].astype(int)
 X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# ENTRENAMIENTO DEL MODELO
 model = RandomForestClassifier(random_state=42)
 model.fit(X_train, y_train)
 
-# EVALUACIÓN Y GRÁFICAS
+# PREDICCIONES Y MÉTRICAS
 y_pred = model.predict(X_val)
 accuracy = accuracy_score(y_val, y_pred)
 print(f"Precisión: {accuracy:.4f}")
@@ -182,7 +201,7 @@ plt.xticks([0, 1], ['No Transported', 'Transported'])
 plt.savefig("distribucion_predicciones.png")
 plt.close()
 
-# ARCHIVO DE SUBMISIÓN
+# ARCHIVO DE ENVÍO PARA SUBIR
 submission = pd.DataFrame({
     'PassengerId': test['PassengerId'],
     'Transported': predictions
