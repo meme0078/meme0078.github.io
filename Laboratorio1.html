@@ -94,7 +94,7 @@
 <body>
   <header>
     <h1>Laboratorio 1 - Clasificación de Imágenes</h1>
-    <p>Clasificación de hojas entre 3p y 5p, y detección del dígito 7 con modelos KNN y Random Forest</p>
+    <p>Clasificación de hojas entre 3p y 5p, y detección del dígito 7 usando KNN y Random Forest</p>
   </header>
 
   <nav>
@@ -103,10 +103,23 @@
 
   <div class="card">
     <div class="titulo-seccion">¿Qué se hizo?</div>
-    <p>Se trabajó con dos ejercicios de clasificación binaria:</p>
+    <p>Se realizaron dos experimentos de clasificación binaria:</p>
     <ul>
-      <li><strong>Parte 1:</strong> Clasificación de imágenes de hojas como "3p" o "5p" con <code>KNeighborsClassifier</code>.</li>
-      <li><strong>Parte 2:</strong> Clasificación del dígito <strong>7</strong> usando el dataset <code>MNIST</code> con <code>KNN</code> y <code>Random Forest</code>.</li>
+      <li><strong>Parte 1:</strong> Clasificación de imágenes de hojas (3p vs 5p) con K-Nearest Neighbors (KNN).</li>
+      <li><strong>Parte 2:</strong> Clasificación del dígito <strong>7</strong> en el dataset MNIST con Random Forest y KNN, junto con gráficas de evaluación.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="titulo-seccion">¿Cómo funciona el código paso a paso?</div>
+    <ul>
+      <li><strong>Carga de imágenes:</strong> Se cargan todas las imágenes desde una carpeta local, se convierten a escala de grises y se redimensionan.</li>
+      <li><strong>Etiquetado manual:</strong> Asume que la mitad de las imágenes son de hojas "3p" y la otra mitad "5p".</li>
+      <li><strong>Clasificación con KNN:</strong> Se entrena un modelo KNN con los datos de hojas y se evalúa con una matriz de confusión.</li>
+      <li><strong>Gráfica de precisión vs K:</strong> Se prueba con diferentes valores de K para elegir el óptimo.</li>
+      <li><strong>Exportación de resultados:</strong> Se guarda un archivo CSV con las predicciones.</li>
+      <li><strong>Clasificación MNIST:</strong> Se carga el dataset MNIST y se entrena un clasificador binario para detectar el dígito 7 con KNN y Random Forest.</li>
+      <li><strong>Evaluación de modelos:</strong> Se generan curvas de precisión-recall, threshold y ROC.</li>
     </ul>
   </div>
 
@@ -120,7 +133,7 @@
     <img src="precision_vs_k.png" alt="Precisión vs K">
 
     <h4>Curva Precisión vs Recall (Random Forest - MNIST)</h4>
-    <img src="precision_vs_recall.png" alt="Precision vs Recall">
+    <img src="precision_vs_recall.png" alt="Curva Precisión vs Recall">
 
     <h4>Curva de Threshold (Random Forest)</h4>
     <img src="precision_recall_threshold.png" alt="Thresholds">
@@ -133,9 +146,10 @@
 
   <div class="card">
     <div class="titulo-seccion">¿Qué aprendí?</div>
-    <p>Este laboratorio me permitió aplicar conceptos clave de clasificación supervisada con modelos clásicos como KNN y Random Forest. Aprendí a interpretar gráficamente los resultados, ajustar hiperparámetros, y evaluar con métricas como precisión, recall, F1-score y curvas ROC/PR.</p>
+    <p>Este laboratorio me permitió comprender el funcionamiento de modelos de clasificación binaria y cómo aplicar técnicas de evaluación como la matriz de confusión, curvas ROC y análisis de threshold. Aprendí a usar datasets reales y simulados para desarrollar modelos robustos.</p>
   </div>
 </body>
 </html>
+
 
 
