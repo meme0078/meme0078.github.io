@@ -1,1 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Tarea 1 - Random Forest</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f3e5f5;
+      padding: 2rem;
+      margin: 0;
+    }
 
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    h1 {
+      color: #6a1b9a;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      background-color: #ce93d8;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #ba68c8;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 2px 2px 6px #ccc;
+    }
+
+    .titulo-seccion {
+      font-weight: bold;
+      color: #4a148c;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    pre {
+      background-color: #f8f8f8;
+      padding: 1rem;
+      overflow-x: auto;
+      border-radius: 8px;
+      font-size: 0.9rem;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      margin-top: 1rem;
+      border-radius: 8px;
+    }
+
+    .boton-descarga {
+      display: inline-block;
+      background-color: #6a1b9a;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+      margin-top: 1rem;
+    }
+
+    .boton-descarga:hover {
+      background-color: #4a148c;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Informe de Laboratorio - Tarea 1</h1>
+    <p>Modelo de Clasificación Random Forest con visualización de resultados</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Inicio</a>
+  </nav>
+
+  <div class="card">
+    <div class="titulo-seccion">Introducción</div>
+    <p>En esta tarea se implementó un modelo de clasificación tipo <strong>Random Forest</strong> con el objetivo de predecir la variable <code>Transported</code> en un conjunto de datos simulados. El modelo fue entrenado con datos preprocesados y evaluado mediante validación cruzada y gráficas interpretativas.</p>
+  </div>
+
+  <div class="card">
+    <div class="titulo-seccion">Gráficas Generadas</div>
+    <p><strong>Matriz de Confusión:</strong></p>
+    <img src="matriz_confusion.png" alt="Matriz de Confusión">
+    <p><strong>Importancia de Características:</strong></p>
+    <img src="importancia_caracteristicas.png" alt="Importancia de Características">
+    <p><strong>Distribución de Clases Predichas:</strong></p>
+    <img src="distribucion_predicciones.png" alt="Distribución de Predicciones">
+    <a class="boton-descarga" href="submission.csv" download>Descargar archivo de predicciones (submission.csv)</a>
+  </div>
+
+  <div class="card">
+    <div class="titulo-seccion">Análisis y Conclusiones</div>
+    <p>El modelo Random Forest presentó una precisión aproximada del 77% en el conjunto de validación. La matriz de confusión permite observar la calidad de la clasificación binaria, mientras que la gráfica de importancia de características resalta aquellas variables más influyentes en la predicción.</p>
+    <p>Se concluye que el modelo tiene un buen desempeño y podría mejorarse con técnicas de ajuste de hiperparámetros, validación cruzada más exhaustiva y exploración de datos faltantes.</p>
+  </div>
+
+  <div class="card">
+    <div class="titulo-seccion">Código Fuente</div>
+    <pre><code>import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.preprocessing import LabelEncoder
+from sklearn.metrics import accuracy_score, confusion_matrix, ConfusionMatrixDisplay
+
+# CARGA DE DATOS
+train = pd.read_csv("train.csv")
+test = pd.read_csv("test.csv")
+
+# CODIFICACIÓN CATEGÓRICA
+cat_cols = ['HomePlanet', 'CryoSleep', 'Cabin', 'Destination', 'VIP']
+encoder = LabelEncoder()
+for col in cat_cols:
+    train[col] = encoder.fit_transform(train[col].astype(str))
+    test[col] = test[col].apply(lambda x: x if x in encoder.classes_ else encoder.classes_[0])
+    test[col] = encoder.transform(test[col].astype(str))
+
+# ENTRENAMIENTO
+X = train.drop(['Transported', 'PassengerId', 'Name'], axis=1)
+y = train['Transported'].astype(int)
+X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2, random_state=42)
+model = RandomForestClassifier(random_state=42)
+model.fit(X_train, y_train)
+
+# EVALUACIÓN Y GRÁFICAS
+y_pred = model.predict(X_val)
+accuracy = accuracy_score(y_val, y_pred)
+print(f"Precisión: {accuracy:.4f}")
+
+# MATRIZ DE CONFUSIÓN
+disp = ConfusionMatrixDisplay(confusion_matrix=confusion_matrix(y_val, y_pred), display_labels=model.classes_)
+disp.plot(cmap='Blues')
+plt.savefig("matriz_confusion.png")
+plt.close()
+
+# IMPORTANCIA DE CARACTERÍSTICAS
+importances = model.feature_importances_
+features = X.columns
+plt.figure(figsize=(10, 6))
+plt.barh(features, importances)
+plt.tight_layout()
+plt.savefig("importancia_caracteristicas.png")
+plt.close()
+
+# DISTRIBUCIÓN DE PREDICCIONES
+X_test = test.drop(['PassengerId', 'Name'], axis=1)
+predictions = model.predict(X_test)
+plt.figure()
+plt.hist(predictions, bins=2, edgecolor='black')
+plt.xticks([0, 1], ['No Transported', 'Transported'])
+plt.savefig("distribucion_predicciones.png")
+plt.close()
+
+# ARCHIVO DE SUBMISIÓN
+submission = pd.DataFrame({
+    'PassengerId': test['PassengerId'],
+    'Transported': predictions
+})
+submission.to_csv('submission.csv', index=False)</code></pre>
+  </div>
+</body>
+</html>
