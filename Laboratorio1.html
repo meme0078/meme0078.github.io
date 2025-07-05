@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Laboratorio 1 - Clasificación de Hojas</title>
+  <title>Laboratorio 1 – Clasificación de Hojas y MNIST</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
@@ -11,18 +11,15 @@
       padding: 2rem;
       margin: 0;
     }
-
     header {
       text-align: center;
       margin-bottom: 2rem;
     }
-
     h1 {
       color: #6a1b9a;
       font-size: 2rem;
       margin-bottom: 1rem;
     }
-
     nav {
       display: flex;
       justify-content: center;
@@ -30,7 +27,6 @@
       margin-bottom: 2rem;
       flex-wrap: wrap;
     }
-
     nav a {
       text-decoration: none;
       background-color: #ce93d8;
@@ -40,11 +36,9 @@
       font-weight: bold;
       transition: background-color 0.3s ease;
     }
-
     nav a:hover {
       background-color: #ba68c8;
     }
-
     .card {
       background: #ffffff;
       border: 2px solid #d1c4e9;
@@ -53,19 +47,16 @@
       margin-bottom: 2rem;
       box-shadow: 4px 4px 10px #c8b6dc;
     }
-
     .titulo-seccion {
       font-weight: bold;
       color: #4a148c;
       font-size: 1.4rem;
       margin-bottom: 1rem;
     }
-
     h4 {
       color: #6a1b9a;
       margin-top: 1rem;
     }
-
     pre {
       background-color: #f8f8f8;
       padding: 1rem;
@@ -74,7 +65,6 @@
       font-size: 0.9rem;
       line-height: 1.4;
     }
-
     img {
       max-width: 100%;
       height: auto;
@@ -82,7 +72,6 @@
       border-radius: 8px;
       border: 1px solid #ccc;
     }
-
     .boton-descarga {
       display: inline-block;
       background-color: #6a1b9a;
@@ -94,7 +83,6 @@
       transition: background-color 0.3s ease;
       margin-top: 1rem;
     }
-
     .boton-descarga:hover {
       background-color: #4a148c;
     }
@@ -102,8 +90,8 @@
 </head>
 <body>
   <header>
-    <h1>Laboratorio 1 - Clasificación de Hojas</h1>
-    <p>Clasificación binaria de hojas de 3 y 5 puntas usando KNN</p>
+    <h1>Laboratorio 1 – Clasificación de Hojas y MNIST</h1>
+    <p>Clasificación multiclase con KNN y binaria con Random Forest usando MNIST</p>
   </header>
 
   <nav>
@@ -112,113 +100,57 @@
 
   <div class="card">
     <div class="titulo-seccion">¿Qué se hizo?</div>
-    <p>Se desarrolló un clasificador de imágenes de hojas para distinguir entre hojas de <strong>3 puntas</strong> y <strong>5 puntas</strong>. Se aplicó el modelo KNN, se entrenó con imágenes preprocesadas, se generaron métricas de evaluación y gráficas interpretativas.</p>
-  </div>
-
-  <div class="card">
-    <div class="titulo-seccion">¿Cómo funciona el código paso a paso?</div>
+    <p>Se desarrollaron dos experimentos de clasificación:</p>
     <ul>
-      <li><strong>Lectura de imágenes:</strong> Las imágenes se leen en escala de grises y se redimensionan a 64x64 píxeles.</li>
-      <li><strong>Etiquetado manual:</strong> Las primeras imágenes se etiquetan como '3p' y el resto como '5p'.</li>
-      <li><strong>Entrenamiento:</strong> Se usa un modelo <code>KNeighborsClassifier</code> para predecir la clase de nuevas hojas.</li>
-      <li><strong>Evaluación:</strong> Se generan la matriz de confusión y la curva de precisión vs. número de vecinos <code>k</code>.</li>
-      <li><strong>Resultados:</strong> Se exportan a un archivo CSV las predicciones junto con sus etiquetas reales.</li>
+      <li><strong>Multiclase:</strong> Se clasificaron imágenes de hojas en dos clases (3p y 5p) usando <code>KNN</code>.</li>
+      <li><strong>Binaria:</strong> Se entrenó un modelo para detectar el dígito 7 en el dataset MNIST usando <code>Random Forest</code> y <code>KNN</code>.</li>
     </ul>
   </div>
 
   <div class="card">
-    <div class="titulo-seccion">Visualización e Interpretación de Resultados</div>
-    <h4>Matriz de Confusión</h4>
-    <p>Representa el número de hojas clasificadas correctamente e incorrectamente como de 3 o 5 puntas.</p>
-    <img src="matriz_confusion_knn.png" alt="Matriz de Confusión">
+    <div class="titulo-seccion">Visualización de Resultados</div>
+    <h4>Matriz de Confusión - KNN Hojas</h4>
+    <img src="matriz_confusion_knn.png" alt="Matriz de Confusión Hojas">
 
-    <h4>Precisión vs Número de Vecinos (K)</h4>
-    <p>Se evalúa el rendimiento del modelo para diferentes valores de <code>K</code> (número de vecinos en KNN).</p>
+    <h4>Precisión vs K (Hojas)</h4>
     <img src="precision_vs_k.png" alt="Precisión vs K">
 
-    <a class="boton-descarga" href="predicciones_knn.csv" download>Descargar resultados en CSV</a>
+    <h4>Curva Precisión-Recall (MNIST)</h4>
+    <img src="precision_vs_recall.png" alt="Curva Precision Recall">
+
+    <h4>Curva ROC (MNIST)</h4>
+    <img src="roc_curve.png" alt="Curva ROC">
+
+    <h4>Precisión y Recall vs Threshold (MNIST)</h4>
+    <img src="precision_recall_threshold.png" alt="Threshold Curve">
+
+    <a class="boton-descarga" href="predicciones_knn.csv" download>Descargar predicciones de hojas (CSV)</a>
   </div>
 
   <div class="card">
     <div class="titulo-seccion">¿Qué aprendí?</div>
-    <p>Este laboratorio permitió entender cómo se aplica un modelo KNN para clasificar imágenes, cómo preprocesar los datos correctamente, evaluar el desempeño y visualizar los resultados para mejorar el modelo.</p>
+    <p>Este laboratorio permitió explorar modelos de clasificación supervisada, comparar algoritmos (KNN y Random Forest), y comprender la interpretación visual de métricas como matriz de confusión, precisión, recall y curvas ROC.</p>
   </div>
 
   <div class="card">
     <div class="titulo-seccion">Código Explicado</div>
-    <p>El siguiente bloque incluye el código fuente completo del experimento.</p>
-    <pre><code>import os
-import cv2
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
-import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
+    <p>El siguiente bloque resume el proceso completo del código.</p>
+    <pre><code># Parte 1: Clasificación de hojas
+- Carga de imágenes desde carpeta local
+- Redimensionamiento y vectorización
+- Etiquetado manual en clases 3p y 5p
+- División en train y test
+- Entrenamiento KNN
+- Generación de matriz de confusión y curva precisión vs K
+- Guardado de predicciones en CSV
 
-# Configuración
-data_dir = 'Leaves/'
-output_dir = './'
-img_size = (64, 64)
-
-X = []
-y = []
-image_names = []
-
-files = sorted([f for f in os.listdir(data_dir) if f.lower().endswith(('.jpg', '.png'))])
-total_imgs = len(files)
-
-for idx, file in enumerate(files):
-    img = cv2.imread(os.path.join(data_dir, file), cv2.IMREAD_GRAYSCALE)
-    if img is not None:
-        resized = cv2.resize(img, img_size)
-        X.append(resized.flatten())
-        y.append('3p' if idx < total_imgs // 2 else '5p')
-        image_names.append(file)
-
-X = np.array(X)
-y = np.array(y)
-
-# Entrenamiento y evaluación
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
-knn = KNeighborsClassifier(n_neighbors=3)
-knn.fit(X_train, y_train)
-y_pred = knn.predict(X_test)
-
-# Reportes
-print(classification_report(y_test, y_pred))
-
-# Matriz de confusión
-conf_mat = confusion_matrix(y_test, y_pred)
-sns.heatmap(conf_mat, annot=True, fmt='d', cmap='Blues')
-plt.title("Matriz de Confusión")
-plt.savefig("matriz_confusion_knn.png")
-plt.close()
-
-# Precisión vs K
-accuracies = []
-k_values = list(range(1, 10))
-for k in k_values:
-    model = KNeighborsClassifier(n_neighbors=k)
-    model.fit(X_train, y_train)
-    acc = accuracy_score(y_test, model.predict(X_test))
-    accuracies.append(acc)
-
-plt.plot(k_values, accuracies, marker='o')
-plt.title("Precisión vs K")
-plt.xlabel("K")
-plt.ylabel("Precisión")
-plt.grid(True)
-plt.savefig("precision_vs_k.png")
-plt.close()
-
-# Guardar resultados
-pd.DataFrame({
-    "Imagen": image_names[-len(y_test):],
-    "Etiqueta Real": y_test,
-    "Predicción": y_pred
-}).to_csv("predicciones_knn.csv", index=False)</code></pre>
+# Parte 2: Clasificador binario con MNIST
+- Carga de MNIST con fetch_openml
+- Clasificación binaria: ¿Es un 7 o no?
+- Comparación de KNN y Random Forest
+- Evaluación con precisión, recall, F1
+- Gráficas: curva ROC, precision-recall, threshold
+</code></pre>
   </div>
 </body>
 </html>
