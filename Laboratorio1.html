@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Laboratorio 1 - Clasificación de Imágenes</title>
+  <title>Laboratorio 1 - Clasificación de Hojas</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
@@ -66,6 +66,15 @@
       margin-top: 1rem;
     }
 
+    pre {
+      background-color: #f8f8f8;
+      padding: 1rem;
+      overflow-x: auto;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
     img {
       max-width: 100%;
       height: auto;
@@ -93,63 +102,123 @@
 </head>
 <body>
   <header>
-    <h1>Laboratorio 1 - Clasificación de Imágenes</h1>
-    <p>Clasificación de hojas entre 3p y 5p, y detección del dígito 7 usando KNN y Random Forest</p>
+    <h1>Laboratorio 1 - Clasificación de Hojas</h1>
+    <p>Clasificación binaria de hojas de 3 y 5 puntas usando KNN</p>
   </header>
 
   <nav>
-    <a href="../index.html">Inicio</a>
+    <a href="index.html">Inicio</a>
   </nav>
 
   <div class="card">
     <div class="titulo-seccion">¿Qué se hizo?</div>
-    <p>Se realizaron dos experimentos de clasificación binaria:</p>
-    <ul>
-      <li><strong>Parte 1:</strong> Clasificación de imágenes de hojas (3p vs 5p) con K-Nearest Neighbors (KNN).</li>
-      <li><strong>Parte 2:</strong> Clasificación del dígito <strong>7</strong> en el dataset MNIST con Random Forest y KNN, junto con gráficas de evaluación.</li>
-    </ul>
+    <p>Se desarrolló un clasificador de imágenes de hojas para distinguir entre hojas de <strong>3 puntas</strong> y <strong>5 puntas</strong>. Se aplicó el modelo KNN, se entrenó con imágenes preprocesadas, se generaron métricas de evaluación y gráficas interpretativas.</p>
   </div>
 
   <div class="card">
     <div class="titulo-seccion">¿Cómo funciona el código paso a paso?</div>
     <ul>
-      <li><strong>Carga de imágenes:</strong> Se cargan todas las imágenes desde una carpeta local, se convierten a escala de grises y se redimensionan.</li>
-      <li><strong>Etiquetado manual:</strong> Asume que la mitad de las imágenes son de hojas "3p" y la otra mitad "5p".</li>
-      <li><strong>Clasificación con KNN:</strong> Se entrena un modelo KNN con los datos de hojas y se evalúa con una matriz de confusión.</li>
-      <li><strong>Gráfica de precisión vs K:</strong> Se prueba con diferentes valores de K para elegir el óptimo.</li>
-      <li><strong>Exportación de resultados:</strong> Se guarda un archivo CSV con las predicciones.</li>
-      <li><strong>Clasificación MNIST:</strong> Se carga el dataset MNIST y se entrena un clasificador binario para detectar el dígito 7 con KNN y Random Forest.</li>
-      <li><strong>Evaluación de modelos:</strong> Se generan curvas de precisión-recall, threshold y ROC.</li>
+      <li><strong>Lectura de imágenes:</strong> Las imágenes se leen en escala de grises y se redimensionan a 64x64 píxeles.</li>
+      <li><strong>Etiquetado manual:</strong> Las primeras imágenes se etiquetan como '3p' y el resto como '5p'.</li>
+      <li><strong>Entrenamiento:</strong> Se usa un modelo <code>KNeighborsClassifier</code> para predecir la clase de nuevas hojas.</li>
+      <li><strong>Evaluación:</strong> Se generan la matriz de confusión y la curva de precisión vs. número de vecinos <code>k</code>.</li>
+      <li><strong>Resultados:</strong> Se exportan a un archivo CSV las predicciones junto con sus etiquetas reales.</li>
     </ul>
   </div>
 
   <div class="card">
     <div class="titulo-seccion">Visualización e Interpretación de Resultados</div>
+    <h4>Matriz de Confusión</h4>
+    <p>Representa el número de hojas clasificadas correctamente e incorrectamente como de 3 o 5 puntas.</p>
+    <img src="matriz_confusion_knn.png" alt="Matriz de Confusión">
 
-    <h4>Matriz de Confusión - Hojas (KNN)</h4>
-    <img src="matriz_confusion_knn.png" alt="Matriz de Confusión - KNN">
-
-    <h4>Precisión vs Número de Vecinos (KNN)</h4>
+    <h4>Precisión vs Número de Vecinos (K)</h4>
+    <p>Se evalúa el rendimiento del modelo para diferentes valores de <code>K</code> (número de vecinos en KNN).</p>
     <img src="precision_vs_k.png" alt="Precisión vs K">
 
-    <h4>Curva Precisión vs Recall (Random Forest - MNIST)</h4>
-    <img src="precision_vs_recall.png" alt="Curva Precisión vs Recall">
-
-    <h4>Curva de Threshold (Random Forest)</h4>
-    <img src="precision_recall_threshold.png" alt="Thresholds">
-
-    <h4>Curva ROC (Random Forest)</h4>
-    <img src="roc_curve.png" alt="Curva ROC">
-
-    <a class="boton-descarga" href="predicciones_knn.csv" download>Descargar CSV con predicciones (hojas)</a>
+    <a class="boton-descarga" href="predicciones_knn.csv" download>Descargar resultados en CSV</a>
   </div>
 
   <div class="card">
     <div class="titulo-seccion">¿Qué aprendí?</div>
-    <p>Este laboratorio me permitió comprender el funcionamiento de modelos de clasificación binaria y cómo aplicar técnicas de evaluación como la matriz de confusión, curvas ROC y análisis de threshold. Aprendí a usar datasets reales y simulados para desarrollar modelos robustos.</p>
+    <p>Este laboratorio permitió entender cómo se aplica un modelo KNN para clasificar imágenes, cómo preprocesar los datos correctamente, evaluar el desempeño y visualizar los resultados para mejorar el modelo.</p>
+  </div>
+
+  <div class="card">
+    <div class="titulo-seccion">Código Explicado</div>
+    <p>El siguiente bloque incluye el código fuente completo del experimento.</p>
+    <pre><code>import os
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
+
+# Configuración
+data_dir = 'Leaves/'
+output_dir = './'
+img_size = (64, 64)
+
+X = []
+y = []
+image_names = []
+
+files = sorted([f for f in os.listdir(data_dir) if f.lower().endswith(('.jpg', '.png'))])
+total_imgs = len(files)
+
+for idx, file in enumerate(files):
+    img = cv2.imread(os.path.join(data_dir, file), cv2.IMREAD_GRAYSCALE)
+    if img is not None:
+        resized = cv2.resize(img, img_size)
+        X.append(resized.flatten())
+        y.append('3p' if idx < total_imgs // 2 else '5p')
+        image_names.append(file)
+
+X = np.array(X)
+y = np.array(y)
+
+# Entrenamiento y evaluación
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+knn = KNeighborsClassifier(n_neighbors=3)
+knn.fit(X_train, y_train)
+y_pred = knn.predict(X_test)
+
+# Reportes
+print(classification_report(y_test, y_pred))
+
+# Matriz de confusión
+conf_mat = confusion_matrix(y_test, y_pred)
+sns.heatmap(conf_mat, annot=True, fmt='d', cmap='Blues')
+plt.title("Matriz de Confusión")
+plt.savefig("matriz_confusion_knn.png")
+plt.close()
+
+# Precisión vs K
+accuracies = []
+k_values = list(range(1, 10))
+for k in k_values:
+    model = KNeighborsClassifier(n_neighbors=k)
+    model.fit(X_train, y_train)
+    acc = accuracy_score(y_test, model.predict(X_test))
+    accuracies.append(acc)
+
+plt.plot(k_values, accuracies, marker='o')
+plt.title("Precisión vs K")
+plt.xlabel("K")
+plt.ylabel("Precisión")
+plt.grid(True)
+plt.savefig("precision_vs_k.png")
+plt.close()
+
+# Guardar resultados
+pd.DataFrame({
+    "Imagen": image_names[-len(y_test):],
+    "Etiqueta Real": y_test,
+    "Predicción": y_pred
+}).to_csv("predicciones_knn.csv", index=False)</code></pre>
   </div>
 </body>
 </html>
-
-
-
