@@ -117,19 +117,30 @@
   </div>
 
   <div class="card">
-    <div class="titulo-seccion">Visualización e Interpretación de Resultados</div>
-    <p>Durante la fase de evaluación, se generaron gráficas automáticas usando <code>matplotlib</code> para visualizar los resultados del modelo y comprender mejor su desempeño.</p>
+    <div class="titulo-seccion">¿Cómo funciona el código paso a paso?</div>
+    <ul>
+      <li><strong>Importación de librerías:</strong> Se utilizan pandas, numpy, matplotlib, sklearn para análisis de datos y visualización.</li>
+      <li><strong>Carga de datos:</strong> Se cargan los archivos <code>train.csv</code> y <code>test.csv</code>.</li>
+      <li><strong>Codificación:</strong> Se convierte texto en números usando <code>LabelEncoder</code> para que el modelo pueda procesarlo.</li>
+      <li><strong>Preparación:</strong> Se separan variables predictoras (<code>X</code>) y objetivo (<code>y</code>), y luego se divide en datos de entrenamiento y validación.</li>
+      <li><strong>Entrenamiento:</strong> Se entrena un modelo de Random Forest.</li>
+      <li><strong>Evaluación:</strong> Se mide precisión y se generan gráficas.</li>
+      <li><strong>Predicción:</strong> Se aplica el modelo al conjunto de prueba (<code>test.csv</code>) y se guarda un archivo de resultados.</li>
+    </ul>
+  </div>
 
+  <div class="card">
+    <div class="titulo-seccion">Visualización e Interpretación de Resultados</div>
     <h4>Matriz de Confusión</h4>
-    <p>Permite ver cuántas predicciones fueron correctas (diagonal) y cuántas incorrectas. Ayuda a evaluar si el modelo tiende a equivocarse más con una clase que con otra.</p>
+    <p>Permite evaluar visualmente cuántas predicciones fueron correctas y cuántas incorrectas. Un buen modelo tendrá valores altos en la diagonal.</p>
     <img src="matriz_confusion.png" alt="Matriz de Confusión">
 
     <h4>Importancia de Características</h4>
-    <p>Muestra qué variables fueron más relevantes para el modelo. Las características con barras más altas influyeron más en la decisión de clasificar a una persona como transportada o no.</p>
+    <p>Muestra qué variables fueron más relevantes para tomar decisiones. Las más importantes tienen barras más largas.</p>
     <img src="importancia_caracteristicas.png" alt="Importancia de Características">
 
     <h4>Distribución de Clases Predichas</h4>
-    <p>Este histograma muestra cuántas veces el modelo predijo cada clase. Una distribución muy desequilibrada puede indicar un sesgo en el modelo.</p>
+    <p>Muestra si el modelo está balanceado o no. Una distribución equilibrada indica que el modelo trata ambas clases por igual.</p>
     <img src="distribucion_predicciones.png" alt="Distribución de Predicciones">
 
     <a class="boton-descarga" href="submission.csv" download>Descargar predicciones en CSV</a>
@@ -137,12 +148,12 @@
 
   <div class="card">
     <div class="titulo-seccion">¿Qué aprendí?</div>
-    <p>Este laboratorio permitió entender mejor el ciclo completo de un modelo de clasificación supervisado: desde la limpieza de datos hasta la interpretación de resultados. También demostró el poder de las visualizaciones para comprender errores y aciertos del modelo.</p>
+    <p>Este laboratorio permitió aplicar conocimientos de clasificación automática, evaluar el desempeño con precisión, y entender mejor el impacto de cada variable. Además, se aprendió a interpretar visualmente resultados del modelo para hacer mejoras futuras.</p>
   </div>
 
   <div class="card">
     <div class="titulo-seccion">Código Explicado</div>
-    <p>El siguiente bloque incluye el código fuente con comentarios, mostrando paso a paso cómo se cargaron, transformaron, entrenaron y evaluaron los datos.</p>
+    <p>El siguiente bloque incluye el código fuente completo del experimento.</p>
     <pre><code>import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -155,7 +166,7 @@ from sklearn.metrics import accuracy_score, confusion_matrix, ConfusionMatrixDis
 train = pd.read_csv("train.csv")
 test = pd.read_csv("test.csv")
 
-# CODIFICACIÓN DE VARIABLES CATEGÓRICAS
+# CODIFICACIÓN CATEGÓRICA
 cat_cols = ['HomePlanet', 'CryoSleep', 'Cabin', 'Destination', 'VIP']
 encoder = LabelEncoder()
 for col in cat_cols:
@@ -163,16 +174,14 @@ for col in cat_cols:
     test[col] = test[col].apply(lambda x: x if x in encoder.classes_ else encoder.classes_[0])
     test[col] = encoder.transform(test[col].astype(str))
 
-# SELECCIÓN DE VARIABLES Y DIVISIÓN DE DATOS
+# ENTRENAMIENTO Y VALIDACIÓN
 X = train.drop(['Transported', 'PassengerId', 'Name'], axis=1)
 y = train['Transported'].astype(int)
 X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2, random_state=42)
-
-# ENTRENAMIENTO DEL MODELO
 model = RandomForestClassifier(random_state=42)
 model.fit(X_train, y_train)
 
-# PREDICCIONES Y MÉTRICAS
+# EVALUACIÓN
 y_pred = model.predict(X_val)
 accuracy = accuracy_score(y_val, y_pred)
 print(f"Precisión: {accuracy:.4f}")
@@ -183,7 +192,7 @@ disp.plot(cmap='Blues')
 plt.savefig("matriz_confusion.png")
 plt.close()
 
-# IMPORTANCIA DE CARACTERÍSTICAS
+# IMPORTANCIA DE VARIABLES
 importances = model.feature_importances_
 features = X.columns
 plt.figure(figsize=(10, 6))
@@ -192,7 +201,7 @@ plt.tight_layout()
 plt.savefig("importancia_caracteristicas.png")
 plt.close()
 
-# DISTRIBUCIÓN DE PREDICCIONES
+# PREDICCIONES SOBRE TEST
 X_test = test.drop(['PassengerId', 'Name'], axis=1)
 predictions = model.predict(X_test)
 plt.figure()
@@ -201,7 +210,7 @@ plt.xticks([0, 1], ['No Transported', 'Transported'])
 plt.savefig("distribucion_predicciones.png")
 plt.close()
 
-# ARCHIVO DE ENVÍO PARA SUBIR
+# GENERACIÓN CSV
 submission = pd.DataFrame({
     'PassengerId': test['PassengerId'],
     'Transported': predictions
