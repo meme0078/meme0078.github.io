@@ -1,43 +1,141 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <title>Laboratorio 1</title>
+  <meta charset="UTF-8">
+  <title>Laboratorio 1 - Clasificación de Imágenes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       background-color: #f3e5f5;
-      color: #4a148c;
+      padding: 2rem;
+      margin: 0;
+    }
+
+    header {
       text-align: center;
-      padding: 3rem;
+      margin-bottom: 2rem;
     }
+
     h1 {
-      font-size: 2.5rem;
+      color: #6a1b9a;
+      font-size: 2rem;
+      margin-bottom: 1rem;
     }
-    p {
-      font-size: 1.2rem;
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      background-color: #ce93d8;
+      color: white;
+      padding: 0.6rem 1.4rem;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #ba68c8;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 2px solid #d1c4e9;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 4px 4px 10px #c8b6dc;
+    }
+
+    .titulo-seccion {
+      font-weight: bold;
+      color: #4a148c;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+
+    h4 {
+      color: #6a1b9a;
       margin-top: 1rem;
     }
-    a.button {
-      display: inline-block;
-      margin-top: 2rem;
-      padding: 0.8rem 1.5rem;
-      background-color: #ba68c8;
-      color: white;
-      text-decoration: none;
+
+    img {
+      max-width: 100%;
+      height: auto;
+      margin: 1rem 0;
       border-radius: 8px;
+      border: 1px solid #ccc;
     }
-    a.button:hover {
-      background-color: #9c27b0;
+
+    .boton-descarga {
+      display: inline-block;
+      background-color: #6a1b9a;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+      margin-top: 1rem;
+    }
+
+    .boton-descarga:hover {
+      background-color: #4a148c;
     }
   </style>
 </head>
 <body>
+  <header>
+    <h1>Laboratorio 1 - Clasificación de Imágenes</h1>
+    <p>Clasificación de hojas entre 3p y 5p, y detección del dígito 7 con modelos KNN y Random Forest</p>
+  </header>
 
-  <h1>Laboratorio 1</h1>
-  <p>Próximamente estará disponible esta sección.</p>
-  <a href="index.html" class="button">Volver al inicio</a>
+  <nav>
+    <a href="../index.html">Inicio</a>
+  </nav>
 
+  <div class="card">
+    <div class="titulo-seccion">¿Qué se hizo?</div>
+    <p>Se trabajó con dos ejercicios de clasificación binaria:</p>
+    <ul>
+      <li><strong>Parte 1:</strong> Clasificación de imágenes de hojas como "3p" o "5p" con <code>KNeighborsClassifier</code>.</li>
+      <li><strong>Parte 2:</strong> Clasificación del dígito <strong>7</strong> usando el dataset <code>MNIST</code> con <code>KNN</code> y <code>Random Forest</code>.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="titulo-seccion">Visualización e Interpretación de Resultados</div>
+
+    <h4>Matriz de Confusión - Hojas (KNN)</h4>
+    <img src="matriz_confusion_knn.png" alt="Matriz de Confusión - KNN">
+
+    <h4>Precisión vs Número de Vecinos (KNN)</h4>
+    <img src="precision_vs_k.png" alt="Precisión vs K">
+
+    <h4>Curva Precisión vs Recall (Random Forest - MNIST)</h4>
+    <img src="precision_vs_recall.png" alt="Precision vs Recall">
+
+    <h4>Curva de Threshold (Random Forest)</h4>
+    <img src="precision_recall_threshold.png" alt="Thresholds">
+
+    <h4>Curva ROC (Random Forest)</h4>
+    <img src="roc_curve.png" alt="Curva ROC">
+
+    <a class="boton-descarga" href="predicciones_knn.csv" download>Descargar CSV con predicciones (hojas)</a>
+  </div>
+
+  <div class="card">
+    <div class="titulo-seccion">¿Qué aprendí?</div>
+    <p>Este laboratorio me permitió aplicar conceptos clave de clasificación supervisada con modelos clásicos como KNN y Random Forest. Aprendí a interpretar gráficamente los resultados, ajustar hiperparámetros, y evaluar con métricas como precisión, recall, F1-score y curvas ROC/PR.</p>
+  </div>
 </body>
 </html>
+
 
