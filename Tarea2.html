@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Tarea 2 - Clustering No Supervisado</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f3e5f5;
+      padding: 2rem;
+      margin: 0;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    h1 {
+      color: #6a1b9a;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      background-color: #ce93d8;
+      color: white;
+      padding: 0.6rem 1.4rem;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #ba68c8;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 2px solid #d1c4e9;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 4px 4px 10px #c8b6dc;
+    }
+
+    .titulo-seccion {
+      font-weight: bold;
+      color: #4a148c;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+
+    h4 {
+      color: #6a1b9a;
+      margin-top: 1rem;
+    }
+
+    pre {
+      background-color: #f8f8f8;
+      padding: 1rem;
+      overflow-x: auto;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      margin: 1rem 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    .boton-descarga {
+      display: inline-block;
+      background-color: #6a1b9a;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+      margin-top: 1rem;
+    }
+
+    .boton-descarga:hover {
+      background-color: #4a148c;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Informe de Laboratorio - Tarea 2</h1>
+    <p>Modelo de Clustering con visualización y análisis de resultados</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Inicio</a>
+  </nav>
+
+  <div class="card">
+    <div class="titulo-seccion">¿Qué se hizo?</div>
+    <p>Se implementó un modelo de <strong>clustering no supervisado</strong> usando el algoritmo <strong>KMeans</strong> para segmentar las recetas del conjunto de datos <code>recipe_site_traffic_2212_clustered.csv</code>. Se analizaron las variables <code>calories</code> y <code>sugar</code> y se exploraron los grupos generados a través de diferentes visualizaciones.</p>
+  </div>
+
+  <div class="card">
+    <div class="titulo-seccion">¿Cómo funciona el código paso a paso?</div>
+    <ul>
+      <li><strong>Carga y preprocesamiento:</strong> Se cargó el dataset con pandas, se eliminaron valores nulos y se filtraron columnas relevantes para clustering (<code>calories</code> y <code>sugar</code>).</li>
+      <li><strong>Modelo de clustering:</strong> Se aplicó <code>KMeans(n_clusters=3)</code> con ajuste de parámetros para segmentar los datos en tres grupos.</li>
+      <li><strong>Asignación de clusters:</strong> Se añadió una nueva columna <code>cluster</code> al dataframe con la clasificación resultante.</li>
+      <li><strong>Análisis visual:</strong> Se generaron 6 gráficas para comprender mejor los resultados del modelo.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="titulo-seccion">Visualización e Interpretación de Resultados</div>
+
+    <h4>Boxplot de Calorías por Cluster</h4>
+    <p>Se puede observar que el <strong>cluster 0</strong> concentra recetas con calorías elevadas, mientras que el <strong>cluster 1</strong> y el <strong>cluster 2</strong> agrupan recetas más bajas en calorías.</p>
+    <img src="boxplot_calories_by_cluster.png" alt="Boxplot Calorías por Cluster">
+
+    <h4>Boxplot de Azúcar por Cluster</h4>
+    <p>El <strong>cluster 2</strong> destaca por tener recetas con alto contenido de azúcar, en contraste con los clusters 0 y 1.</p>
+    <img src="boxplot_sugar_by_cluster.png" alt="Boxplot Azúcar por Cluster">
+
+    <h4>Conteo por Categoría y Cluster</h4>
+    <p>Este gráfico permite ver la distribución de las categorías alimenticias en cada cluster. Por ejemplo, el <strong>cluster 1</strong> tiene la mayor diversidad.</p>
+    <img src="category_cluster_count.png" alt="Conteo Categoría Cluster">
+
+    <h4>Promedio de Calorías y Azúcar por Cluster</h4>
+    <p>El promedio de calorías es más alto en el <strong>cluster 0</strong> y el promedio de azúcar en el <strong>cluster 2</strong>, indicando distintos perfiles nutricionales.</p>
+    <img src="cluster_means.png" alt="Promedios por Cluster">
+
+    <h4>Gráfico de Dispersión (Calorías vs Azúcar)</h4>
+    <p>Este scatterplot muestra cómo están distribuidos los clusters en el espacio de dos dimensiones. Se observan agrupaciones claras y valores atípicos.</p>
+    <img src="clustering_scatter.png" alt="Clustering Scatter">
+  </div>
+
+  <div class="card">
+    <div class="titulo-seccion">¿Qué aprendí?</div>
+    <p>Esta práctica permitió aplicar técnicas de análisis exploratorio y clustering para entender cómo se pueden agrupar datos no etiquetados según sus características. Se destacó la utilidad de las visualizaciones para interpretar los patrones en los datos y entender las diferencias nutricionales entre los clusters.</p>
+  </div>
+
+  <div class="card">
+    <div class="titulo-seccion">Código Explicado</div>
+    <p>El siguiente bloque incluye el código fuente completo del experimento.</p>
+    <pre><code>import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.cluster import KMeans
+
+# CARGA DE DATOS
+df = pd.read_csv("recipe_site_traffic_2212_clustered.csv")
+df.dropna(subset=["calories", "sugar"], inplace=True)
+
+# CLUSTERING
+X = df[["calories", "sugar"]]
+kmeans = KMeans(n_clusters=3, random_state=42)
+df["cluster"] = kmeans.fit_predict(X)
+
+# VISUALIZACIONES
+# (Gráficas generadas en el código de análisis)</code></pre>
+  </div>
+</body>
+</html>
