@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz 3 - Machine Learning</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f3e5f5;
+      padding: 2rem;
+      margin: 0;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    h1 {
+      color: #6a1b9a;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      background-color: #ce93d8;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #ba68c8;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 2px 2px 6px #ccc;
+    }
+
+    .pregunta {
+      font-weight: bold;
+      color: #4a148c;
+      margin-bottom: 0.5rem;
+    }
+
+    .opciones {
+      margin-bottom: 0.5rem;
+    }
+
+    .respuesta {
+      color: green;
+      font-weight: bold;
+      margin-bottom: 0.3rem;
+    }
+
+    .explicacion {
+      color: #333;
+      font-style: italic;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Quiz 3 - Machine Learning</h1>
+  </header>
+
+  <nav>
+    <a href="index.html">Inicio</a>
+  </nav>
+
+  <div class="card">
+    <div class="pregunta">1. Tengo un modelo que marca los puntos faciales de una persona</div>
+    <div class="opciones">
+      A. Se hace con un modelo de detección de anomalías<br>
+      B. Se basa en promedio móvil ponderado<br>
+      C. Es un modelo de clasificación<br>
+      D. Es un modelo de regresión<br>
+      E. Todas las anteriores<br>
+      F. Ninguna de las anteriores
+    </div>
+    <div class="respuesta">Respuesta correcta: D</div>
+    <div class="explicacion">
+      Marcar puntos faciales implica predecir coordenadas continuas en una imagen (como posición X e Y), lo cual es una tarea típica de regresión.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="pregunta">2. Es conocido como distancia Manhattan</div>
+    <div class="opciones">
+      A. L1 norm<br>
+      B. L2 norm<br>
+      C. RMSE<br>
+      D. DBSCAN<br>
+      E. Todas las anteriores<br>
+      F. Ninguna de las anteriores
+    </div>
+    <div class="respuesta">Respuesta correcta: A</div>
+    <div class="explicacion">
+      La distancia Manhattan o "L1 norm" es la suma de los valores absolutos de las diferencias entre coordenadas.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="pregunta">3. Normalmente dividimos el dataset en 80 / 20. A este 20% se le conoce regularmente como</div>
+    <div class="opciones">
+      A. Training Set<br>
+      B. Validation Set<br>
+      C. Test Set<br>
+      D. Cross-Validation Set<br>
+      E. Todas las anteriores<br>
+      F. Ninguna de las anteriores
+    </div>
+    <div class="respuesta">Respuesta correcta: C</div>
+    <div class="explicacion">
+      El 20% restante típicamente se reserva como conjunto de prueba (test set), para evaluar el desempeño final del modelo.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="pregunta">4. Un dato arroja -0.9 en su correlación contra otro dato. Esto significa</div>
+    <div class="opciones">
+      A. Relación directa alta<br>
+      B. Relación directa baja<br>
+      C. Relación inversa baja<br>
+      D. Relación inversa alta<br>
+      E. Todas las anteriores<br>
+      F. Ninguna de las anteriores
+    </div>
+    <div class="respuesta">Respuesta correcta: D</div>
+    <div class="explicacion">
+      Un valor de -0.9 indica una fuerte correlación negativa. A medida que una variable aumenta, la otra disminuye con gran consistencia.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="pregunta">5. Cuando hacemos limpieza de datos tenemos información categórica que podemos ingresar directamente al modelo</div>
+    <div class="opciones">A. Cierto<br>B. Falso</div>
+    <div class="respuesta">Respuesta correcta: B</div>
+    <div class="explicacion">
+      Los algoritmos de machine learning no pueden manejar variables categóricas directamente. Estas deben ser transformadas mediante codificación.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="pregunta">6. Para entrenar al modelo utilizamos el siguiente método</div>
+    <div class="opciones">
+      A. .transform()<br>
+      B. .fit()<br>
+      C. .train()<br>
+      D. .train_test()<br>
+      E. Todas las anteriores<br>
+      F. Ninguna de las anteriores
+    </div>
+    <div class="respuesta">Respuesta correcta: B</div>
+    <div class="explicacion">
+      En librerías como scikit-learn, `.fit()` es el método estándar para ajustar un modelo a los datos de entrenamiento.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="pregunta">7. Tengo un split del dataset y voy a aplicar validación cruzada, puedo aplicar esto haciendo</div>
+    <div class="opciones">
+      A. KFold<br>
+      B. fit_transform<br>
+      C. fit<br>
+      D. transform<br>
+      E. corr<br>
+      F. Todas las anteriores<br>
+      G. Ninguna de las anteriores
+    </div>
+    <div class="respuesta">Respuesta correcta: A</div>
+    <div class="explicacion">
+      `KFold` es una técnica de validación cruzada que divide los datos en K subconjuntos y entrena/evalúa el modelo múltiples veces.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="pregunta">8. Puedo obtener los mejores hiperparámetros del modelo AUTOMÁTICAMENTE haciendo</div>
+    <div class="opciones">
+      A. GridSearch<br>
+      B. Manual Tunning<br>
+      C. RandomizedGridSearch<br>
+      D. Matriz de covarianza<br>
+      E. Todas las anteriores<br>
+      F. Ninguna de las anteriores
+    </div>
+    <div class="respuesta">Respuesta correcta: A</div>
+    <div class="explicacion">
+      GridSearch y RandomizedSearch son métodos automáticos para encontrar los mejores hiperparámetros. Manual tuning no es automático.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="pregunta">9. Para servir el algoritmo en una página web debemos obtener</div>
+    <div class="opciones">
+      A. El REST API<br>
+      B. El modelo en un formato serializable<br>
+      C. La aplicación de Android<br>
+      D. La aplicación de React JS<br>
+      E. Todas las anteriores<br>
+      F. Ninguna de las anteriores
+    </div>
+    <div class="respuesta">Respuesta correcta: A</div>
+    <div class="explicacion">
+      El modelo debe exponerse mediante una API para ser consumido por una página web. También debe estar serializado para funcionar.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="pregunta">10. ¿Cuál de las siguientes no es una plataforma para servir una aplicación de IA?</div>
+    <div class="opciones">
+      A. GCP (Google Cloud Platform)<br>
+      B. AWS (Amazon Web Services)<br>
+      C. Microsoft Azure<br>
+      D. Yahoo Web Services<br>
+      E. Todas las anteriores<br>
+      F. Ninguna de las anteriores
+    </div>
+    <div class="respuesta">Respuesta correcta: D</div>
+    <div class="explicacion">
+      Yahoo no ofrece actualmente una plataforma conocida para desplegar modelos de IA. Las otras sí son ampliamente utilizadas.
+    </div>
+  </div>
+
+</body>
+</html>
