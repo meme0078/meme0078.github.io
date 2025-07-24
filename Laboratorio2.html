@@ -1,43 +1,140 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <title>Laboratorio 2</title>
+  <meta charset="UTF-8">
+  <title>Laboratorio 2 – Predicción de alquiler de bicicletas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       background-color: #f3e5f5;
-      color: #4a148c;
+      padding: 2rem;
+      margin: 0;
+    }
+    header {
       text-align: center;
-      padding: 3rem;
+      margin-bottom: 2rem;
     }
     h1 {
-      font-size: 2.5rem;
+      color: #6a1b9a;
+      font-size: 2rem;
+      margin-bottom: 1rem;
     }
-    p {
-      font-size: 1.2rem;
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    nav a {
+      text-decoration: none;
+      background-color: #ce93d8;
+      color: white;
+      padding: 0.6rem 1.4rem;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    nav a:hover {
+      background-color: #ba68c8;
+    }
+    .card {
+      background: #ffffff;
+      border: 2px solid #d1c4e9;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 4px 4px 10px #c8b6dc;
+    }
+    .titulo-seccion {
+      font-weight: bold;
+      color: #4a148c;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+    h4 {
+      color: #6a1b9a;
       margin-top: 1rem;
     }
-    a.button {
-      display: inline-block;
-      margin-top: 2rem;
-      padding: 0.8rem 1.5rem;
-      background-color: #ba68c8;
-      color: white;
-      text-decoration: none;
+    pre {
+      background-color: #f8f8f8;
+      padding: 1rem;
+      overflow-x: auto;
       border-radius: 8px;
+      font-size: 0.9rem;
+      line-height: 1.4;
     }
-    a.button:hover {
-      background-color: #9c27b0;
+    img {
+      max-width: 100%;
+      height: auto;
+      margin: 1rem 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
     }
   </style>
 </head>
 <body>
+  <header>
+    <h1>Laboratorio 2 – Predicción de alquiler de bicicletas</h1>
+    <p>Regresión con modelos Lineal, Árbol de Decisión y Random Forest</p>
+  </header>
 
-  <h1>Laboratorio 2</h1>
-  <p>Próximamente estará disponible esta sección.</p>
-  <a href="index.html" class="button">Volver al inicio</a>
+  <nav>
+    <a href="index.html">Inicio</a>
+  </nav>
 
+  <div class="card">
+    <div class="titulo-seccion">¿Qué se hizo?</div>
+    <p>Se realizó una regresión utilizando datos del sistema de bicicletas compartidas, aplicando los siguientes pasos:</p>
+    <ul>
+      <li>Análisis exploratorio de datos con histogramas y relaciones.</li>
+      <li>Transformaciones como la creación de la variable <code>day_type</code>.</li>
+      <li>Entrenamiento de modelos de regresión: <code>Lineal</code>, <code>Árbol de decisión</code> y <code>Random Forest</code>.</li>
+      <li>Evaluación con <code>RMSE</code> y validación cruzada.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="titulo-seccion">Visualización de Resultados</div>
+    <h4>Distribuciones de las variables</h4>
+    <img src="01_histograma_variables.png" alt="Distribuciones">
+
+    <h4>Distribución de tipos de día</h4>
+    <img src="02_distribucion_tipo_dia.png" alt="Distribución tipos de día">
+
+    <h4>Matriz de dispersión</h4>
+    <img src="03_matriz_dispersion.png" alt="Matriz de dispersión">
+
+    <h4>Relación entre temperatura y cantidad de alquileres</h4>
+    <img src="04_temp_vs_cnt.png" alt="Temperatura vs Alquileres">
+  </div>
+
+  <div class="card">
+    <div class="titulo-seccion">¿Qué aprendí?</div>
+    <p>Este laboratorio permitió entender la aplicación de modelos de regresión, el uso de validación cruzada, y la importancia del análisis exploratorio para preparar los datos y elegir las variables más representativas.</p>
+  </div>
+
+  <div class="card">
+    <div class="titulo-seccion">Código Explicado</div>
+    <pre><code># Preparación:
+- Carga del dataset 'hour.csv'
+- Eliminación de columnas irrelevantes
+- Creación de la variable day_type (working day vs. holiday/weekend)
+
+# Visualización:
+- Histogramas, diagramas de dispersión, correlación
+
+# Modelado:
+- División train/test
+- Modelos: LinearRegression, DecisionTreeRegressor, RandomForestRegressor
+- Métricas: RMSE y validación cruzada (10-fold)
+
+# Comparación:
+- Promedio y desviación estándar del error de cada modelo
+</code></pre>
+  </div>
 </body>
 </html>
+
 
