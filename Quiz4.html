@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz 3 - Machine Learning</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f3e5f5;
+      padding: 2rem;
+      margin: 0;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    h1 {
+      color: #6a1b9a;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      background-color: #ce93d8;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #ba68c8;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 2px 2px 6px #ccc;
+    }
+
+    .pregunta {
+      font-weight: bold;
+      color: #4a148c;
+      margin-bottom: 0.5rem;
+    }
+
+    .opciones {
+      margin-bottom: 0.5rem;
+    }
+
+    .respuesta {
+      color: green;
+      font-weight: bold;
+      margin-bottom: 0.3rem;
+    }
+
+    .explicacion {
+      color: #333;
+      font-style: italic;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Quiz 3 - Machine Learning</h1>
+  </header>
+
+  <nav>
+    <a href="index.html">Inicio</a>
+  </nav>
+
+  <!-- Pregunta 1 -->
+  <div class="card">
+    <div class="pregunta">1. ¿Qué es el machine learning?</div>
+    <div class="opciones">
+      A. Un conjunto de técnicas que permiten a las máquinas aprender a partir de datos<br>
+      B. Un conjunto de técnicas que permiten a las máquinas procesar grandes cantidades de datos<br>
+      C. Un conjunto de técnicas que permiten a las máquinas interpretar datos
+    </div>
+    <div class="respuesta">Respuesta correcta: A</div>
+    <div class="explicacion">
+      El machine learning permite que las máquinas aprendan patrones a partir de datos para realizar predicciones o tomar decisiones.
+    </div>
+  </div>
+
+  <!-- Pregunta 2 -->
+  <div class="card">
+    <div class="pregunta">2. ¿Qué es un vector en matemáticas?</div>
+    <div class="opciones">
+      A. Una cantidad escalar<br>
+      B. Una cantidad con dirección y magnitud<br>
+      C. Una función matemática
+    </div>
+    <div class="respuesta">Respuesta correcta: B</div>
+    <div class="explicacion">
+      Un vector tiene magnitud y dirección, y se representa frecuentemente como una flecha en el espacio.
+    </div>
+  </div>
+
+  <!-- Pregunta 3 -->
+  <div class="card">
+    <div class="pregunta">3. ¿Qué es una matriz en matemáticas?</div>
+    <div class="opciones">
+      A. Una cantidad escalar<br>
+      B. Una cantidad con dirección y magnitud<br>
+      C. Un arreglo n-dimensional de elementos numéricos
+    </div>
+    <div class="respuesta">Respuesta correcta: C</div>
+    <div class="explicacion">
+      Una matriz es una estructura de datos que organiza números en filas y columnas.
+    </div>
+  </div>
+
+  <!-- Pregunta 4 -->
+  <div class="card">
+    <div class="pregunta">4. ¿Cuál es la operación matricial que representa la transposición de una matriz A?</div>
+    <div class="opciones">
+      A. A.T<br>
+      B. A**-1<br>
+      C. A**2
+    </div>
+    <div class="respuesta">Respuesta correcta: A</div>
+    <div class="explicacion">
+      La transposición se denota como A.T y cambia filas por columnas.
+    </div>
+  </div>
+
+  <!-- Pregunta 5 -->
+  <div class="card">
+    <div class="pregunta">5. Si quisiéramos multiplicar 'A' y 2 ¿podríamos realizar la operación?</div>
+    <div class="opciones">A. Sí<br>B. No</div>
+    <div class="respuesta">Respuesta correcta: A</div>
+    <div class="explicacion">
+      Sí, si A es una matriz, puede multiplicarse por un escalar como 2.
+    </div>
+  </div>
+
+  <!-- Pregunta 6 -->
+  <div class="card">
+    <div class="pregunta">6. ¿Qué es una función matemática?</div>
+    <div class="opciones">
+      A. Un conjunto de reglas que asignan a cada elemento de un conjunto de entrada un único elemento de un conjunto de salida<br>
+      B. Un conjunto de números<br>
+      C. Un conjunto de vectores
+    </div>
+    <div class="respuesta">Respuesta correcta: A</div>
+    <div class="explicacion">
+      Una función es una relación entre conjuntos donde cada entrada tiene una salida única.
+    </div>
+  </div>
+
+  <!-- Pregunta 7 -->
+  <div class="card">
+    <div class="pregunta">7. ¿Qué es una función lineal en matemáticas?</div>
+    <div class="opciones">
+      A. Una función que tiene la forma f(x) = a*x + b<br>
+      B. Una función que tiene la forma f(x) = ax**2 + b*x + c<br>
+      C. Una función que tiene la forma f(x) = e**x
+    </div>
+    <div class="respuesta">Respuesta correcta: A</div>
+    <div class="explicacion">
+      La función lineal es una línea recta y su forma es f(x) = ax + b.
+    </div>
+  </div>
+
+  <!-- Pregunta 8 -->
+  <div class="card">
+    <div class="pregunta">8. ¿Qué es una función exponencial en matemáticas?</div>
+    <div class="opciones">
+      A. f(x) = a*x + b<br>
+      B. f(x) = ax**2 + b*x + c<br>
+      C. f(x) = e**x
+    </div>
+    <div class="respuesta">Respuesta correcta: C</div>
+    <div class="explicacion">
+      La función exponencial se caracteriza por tener la variable como exponente.
+    </div>
+  </div>
+
+  <!-- Pregunta 9 -->
+  <div class="card">
+    <div class="pregunta">9. ¿Qué es la regresión lineal en el contexto del machine learning?</div>
+    <div class="opciones">
+      A. Un algoritmo de clasificación<br>
+      B. Un algoritmo que encuentra la mejor línea recta que describe la relación entre dos variables<br>
+      C. Un algoritmo que usa una función exponencial
+    </div>
+    <div class="respuesta">Respuesta correcta: B</div>
+    <div class="explicacion">
+      La regresión lineal busca ajustar una línea recta que modele la relación entre variables.
+    </div>
+  </div>
+
+  <!-- Pregunta 10 -->
+  <div class="card">
+    <div class="pregunta">10. ¿Cuáles son los tres tipos principales de machine learning?</div>
+    <div class="opciones">
+      A. Aprendizaje supervisado, no supervisado, reforzado<br>
+      B. No supervisado, semisupervisado, supervisado<br>
+      C. No supervisado, supervisado, profundo
+    </div>
+    <div class="respuesta">Respuesta correcta: A</div>
+    <div class="explicacion">
+      Los tres principales son supervisado, no supervisado y por refuerzo.
+    </div>
+  </div>
+
+  <!-- Pregunta 11 -->
+  <div class="card">
+    <div class="pregunta">11. ¿Qué es el aprendizaje supervisado?</div>
+    <div class="opciones">
+      A. Aprendizaje con datos etiquetados<br>
+      B. Aprendizaje con datos no etiquetados<br>
+      C. Aprendizaje con datos aleatorios
+    </div>
+    <div class="respuesta">Respuesta correcta: A</div>
+    <div class="explicacion">
+      El aprendizaje supervisado usa ejemplos donde se conoce el resultado esperado.
+    </div>
+  </div>
+
+  <!-- Pregunta 12 -->
+  <div class="card">
+    <div class="pregunta">12. ¿Qué es una función de pérdida?</div>
+    <div class="opciones">
+      A. Mide la discrepancia entre predicción y realidad<br>
+      B. Mide la complejidad del modelo<br>
+      C. Mide la velocidad de aprendizaje
+    </div>
+    <div class="respuesta">Respuesta correcta: A</div>
+    <div class="explicacion">
+      La función de pérdida ayuda a cuantificar cuán mal está funcionando un modelo.
+    </div>
+  </div>
+
+  <!-- Pregunta 13 -->
+  <div class="card">
+    <div class="pregunta">13. ¿Cuál es el objetivo de la regresión logística?</div>
+    <div class="opciones">
+      A. Predecir valores continuos<br>
+      B. Predecir valores discretos<br>
+      C. Clasificar datos
+    </div>
+    <div class="respuesta">Respuesta correcta: C</div>
+    <div class="explicacion">
+      La regresión logística es usada para tareas de clasificación binaria o múltiple.
+    </div>
+  </div>
+
+  <!-- Pregunta 14 -->
+  <div class="card">
+    <div class="pregunta">14. ¿Qué se puede resolver con la regresión logística?</div>
+    <div class="opciones">
+      A. Regresión lineal<br>
+      B. Regresión no lineal<br>
+      C. Clasificación binaria y múltiple
+    </div>
+    <div class="respuesta">Respuesta correcta: C</div>
+    <div class="explicacion">
+      La regresión logística se utiliza comúnmente en problemas de clasificación.
+    </div>
+  </div>
+
+  <!-- Pregunta 15 -->
+  <div class="card">
+    <div class="pregunta">15. ¿Cuál es la función de pérdida utilizada en la regresión logística?</div>
+    <div class="opciones">
+      A. Entropía cuadrática<br>
+      B. Entropía cruzada<br>
+      C. Error cuadrático medio
+    </div>
+    <div class="respuesta">Respuesta correcta: B</div>
+    <div class="explicacion">
+      En clasificación, la entropía cruzada es ideal para medir la precisión de las probabilidades predichas.
+    </div>
+  </div>
+
+  <!-- Pregunta 16 -->
+  <div class="card">
+    <div class="pregunta">16. ¿Cuál es el objetivo de la regresión lineal?</div>
+    <div class="opciones">
+      A. Predecir valores continuos<br>
+      B. Predecir valores discretos<br>
+      C. Clasificar datos
+    </div>
+    <div class="respuesta">Respuesta correcta: A</div>
+    <div class="explicacion">
+      La regresión lineal se utiliza para predecir valores numéricos continuos.
+    </div>
+  </div>
+
+  <!-- Pregunta 17 -->
+  <div class="card">
+    <div class="pregunta">17. ¿Cuál es la función de costo utilizada en la regresión lineal?</div>
+    <div class="opciones">
+      A. Error cuadrático medio<br>
+      B. Entropía cruzada binaria<br>
+      C. Pérdida logarítmica
+    </div>
+    <div class="respuesta">Respuesta correcta: A</div>
+    <div class="explicacion">
+      El error cuadrático medio mide el promedio de los cuadrados de los errores en regresión.
+    </div>
+  </div>
+
+  <!-- Pregunta 18 -->
+  <div class="card">
+    <div class="pregunta">18. ¿Cómo se puede evaluar si el modelo de regresión lineal se ajusta adecuadamente?</div>
+    <div class="opciones">
+      A. Inspección visual de residuos<br>
+      B. Comparación de valores predichos y reales<br>
+      C. Cálculo del error cuadrático medio
+    </div>
+    <div class="respuesta">Respuesta correcta: C</div>
+    <div class="explicacion">
+      El error cuadrático medio ofrece una medida cuantitativa del ajuste del modelo.
+    </div>
+  </div>
+
+</body>
+</html>
