@@ -31,7 +31,7 @@
       flex-wrap: wrap;
     }
 
-    nav a {
+    nav a, .github-btn {
       text-decoration: none;
       background-color: #ce93d8;
       color: white;
@@ -39,9 +39,10 @@
       border-radius: 8px;
       font-weight: bold;
       transition: background-color 0.3s ease;
+      display: inline-block;
     }
 
-    nav a:hover {
+    nav a:hover, .github-btn:hover {
       background-color: #ba68c8;
     }
 
@@ -97,6 +98,11 @@
 
     .boton-descarga:hover {
       background-color: #4a148c;
+    }
+
+    .center-btn {
+      text-align: center;
+      margin-top: 2rem;
     }
   </style>
 </head>
@@ -173,6 +179,10 @@ df["cluster"] = kmeans.fit_predict(X)
 
 # VISUALIZACIONES
 # (Gráficas generadas en el código de análisis)</code></pre>
+  </div>
+
+  <div class="center-btn">
+    <a href="https://github.com/meme0078/Tareas/tree/main/Tarea%202" class="github-btn" target="_blank">Ver en GitHub</a>
   </div>
 </body>
 </html>
